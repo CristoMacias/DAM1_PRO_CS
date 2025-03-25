@@ -15,7 +15,7 @@ public class App{
 	
 	public static void main(String[] args){
 		Path path=Paths.get("");//Ruta donde se encuentra el App y obtenemos la ruta absoluta
-		Path pathConfiguracion = Paths.get("config.ini"); //Ruta del archivo de config
+		Path pathConfiguracion = Paths.get("config.conf"); //Ruta del archivo de config
 		
 		try{
 			if(Files.exists(pathConfiguracion)){ //Comprobar si existe el archivo de config
