@@ -14,6 +14,9 @@
 public class App{
 	
 	public static void main(String[] args){
+
+		Controlador controlador = new Controlador();
+
 		Path path=Paths.get("");//Ruta donde se encuentra el App y obtenemos la ruta absoluta
 		Path pathConfiguracion = Paths.get("config.conf"); //Ruta del archivo de config
 		try{
@@ -35,6 +38,10 @@ public class App{
 			e.printStackTrace();
 		}
 
+		
+		controlador.iniciar(); //Llama al inicio del controlador
+
+		
 		/* Instanciar jugadores y mostrar atributos para ver que se cargan y guardan jugadores si no existe
 		Jugador prueba = new Jugador("Sandra");	
 		Jugador prueba2 = new Jugador("Cristo");
@@ -43,8 +50,8 @@ public class App{
 		System.out.println(prueba2.getNombre()+" / "+prueba2.getEmail());
 		System.out.println(prueba3.getNombre()+" / "+prueba3.getEmail());
 		*/
-		Escenario escenario=new Escenario();
-		escenario.mostrarEscenario();
+		
+		
 	
 	}
 }
