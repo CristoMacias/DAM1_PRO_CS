@@ -16,16 +16,15 @@ public class App{
 	public static void main(String[] args){
 		Path path=Paths.get("");//Ruta donde se encuentra el App y obtenemos la ruta absoluta
 		Path pathConfiguracion = Paths.get("config.conf"); //Ruta del archivo de config
-		
 		try{
 			if(Files.exists(pathConfiguracion)){ //Comprobar si existe el archivo de config
 				System.out.println("Ya existe el archivo.");
 			}else{
 				System.out.println("El archivo de configuración no existe y se va a crear.");
 				Files.createFile(pathConfiguracion); //Creamos el archivo config
-				Path pathEscenas = path.resolve("escenas");
+				Path pathEscenas = path.resolve("escenarios");
 				Files.createDirectories(pathEscenas);
-				Path pathPersonajes = path.resolve("personajes");
+				Path pathPersonajes = path.resolve("jugadores");
 				Files.createDirectories(pathPersonajes);
 				Path pathPartidas = path.resolve("partidas");
 				Files.createDirectories(pathPartidas);
@@ -34,7 +33,16 @@ public class App{
 
 		}catch(IOException e){ //Capturamos las exceptiones 
 			e.printStackTrace();
-		}	
+		}
+
+		/* Instanciar jugadores y mostrar atributos para ver que se cargan y guardan jugadores si no existe
+		Jugador prueba = new Jugador("Sandra");	
+		Jugador prueba2 = new Jugador("Cristo");
+		Jugador prueba3 = new Jugador("Miguel");
+		System.out.println(prueba.getNombre()+" / "+prueba.getEmail());
+		System.out.println(prueba2.getNombre()+" / "+prueba2.getEmail());
+		System.out.println(prueba3.getNombre()+" / "+prueba3.getEmail());
+		*/
 	
 	}
 }
