@@ -43,6 +43,8 @@ public class App{
 		System.out.println(prueba2.getNombre()+" / "+prueba2.getEmail());
 		System.out.println(prueba3.getNombre()+" / "+prueba3.getEmail());
 		*/
+		Escenario escenario=new Escenario();
+		escenario.mostrarEscenario();
 	
 	}
 }

@@ -19,13 +19,15 @@ import java.io.Serializable;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
 
-import java.util.List;
-import java.util.ArrayList;
 
 public class Jugador implements Serializable{ //Implementamos la interfaz Serializable para hacer que el jugador se serialice
 	private String nombre;
 	private String email;
 
+	/**
+	 * Constructor para inicializar los atributos del personaje e instanciarlo
+	 * @param nombre Recibe el nombre del jugador
+	 */ 
 	public Jugador(String nombre){
 		this.nombre=nombre;
 		
