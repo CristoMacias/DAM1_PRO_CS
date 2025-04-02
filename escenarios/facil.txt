@@ -1,12 +1,11 @@
-40 filas X 10 columnas
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-        X     X        X              X
-X  XXXX  XXXXX X  XXXX  X  XXXXXX  XXXX
-X  X  X        X  X  X     X     X    X
-X  X  X  XXXX  XXXX  XXXXXX  XXXXX  X X
-X     X  X  X        X    X  X  X   X X
-X  XXXXX  X  XXXXXX  X  XXXXXX  X  X  X
-X       X    X       X     X  X  X    X
-XXXXXX  XXXXXX  XXXXXX  XXXXXX  XXXX  X
-X                                    
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+40 X 10
+______________________________________
+        X              X              |
+|  XXXX  XXXXX X  XXXX  X  XXXXXX  XXX|
+|  X  X        X  X  X     X     X    |
+|  X  X  XXXX  XXXX  XXXXXX  XXXXX  X |
+|     X  X  X        X    X  X  X   X |
+|  XXXXX  X  XXXXXX  X  XXXXXX  X  X  |
+|       X    X       X     X  X  X    |
+|XXXXX  XXXXXX  XXXXXX  XXXXXX  XXXXX  
+|_____________________________________|

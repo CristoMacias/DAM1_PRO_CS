@@ -116,30 +116,31 @@ public class Controlador {
         public void menuPrincipal(){
             String opcion = "";
             String dificultad = "";
-            Boolean bandera = false;
             do{
                 opcion = pedirString();
                 switch (opcion) {
                     case "1":
                         dificultad = "facil";
-                        bandera = true;
                         break;
                     case "2":
                         dificultad = "medio";
-                        bandera = true;
                         break;
                     case "3":
                         dificultad = "dificil";
-                        bandera = true;
                         break;
+                    case "0":
+                        System.out.println("Saliendo...");
+                        return;
                     default:
                         System.out.println("Elija una opcion válida.");
                         break;
                 }
-            }while(!bandera);
+            }while(dificultad.isEmpty());
 
             Escenario escenario = new Escenario(dificultad); //Crea el objeto
             vistaEscenario.mostrarEscenario(escenario.getEscenario()); //Envía el objeto creado a la vista escenario para mostrarla
+            vistaEscenario.mostrarElementos(escenario.contabilizarElementos()); //Llama al método que contabiliza los elementos de la clase escenario, ya que son características suyas.
+
         }
         /**
          * Método para pedir texto al usuario

@@ -42,6 +42,28 @@ public class Escenario{
 	}
 
 	/**
+	 * Contabiliza los espacios y los obstáculos del escenario
+	 * @return revuelve un Array donde la posición 1 son los obstáculos y la posición 2 son los espacios
+	 */
+	public Integer[] contabilizarElementos(){
+		Integer contadorObstaculos = 0;
+		Integer contadorEspacios = 0;
+
+		for(String linea : this.escenarioCargado){
+			for(char elementos : linea.toCharArray()){
+				if(elementos == 'X'){
+					contadorObstaculos++;
+				}
+				else if(elementos == ' '){
+					contadorEspacios++;
+				}
+			}
+		}
+
+		return new Integer[]{contadorObstaculos, contadorEspacios};
+	}
+
+	/**
 	 * Getter de nombre
 	 * @return devuelve el nombre
 	 */

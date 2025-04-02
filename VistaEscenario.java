@@ -11,6 +11,7 @@ public class VistaEscenario {
         System.out.println("1) Nivel fácil");
         System.out.println("2) Nivel medio");
         System.out.println("3) Nivel difícil");
+        System.out.println("0) Salir");
         System.out.println("=============================");
 
     }
@@ -25,4 +26,12 @@ public class VistaEscenario {
         }
     }
 
+    /**
+     * Método que muestra los elementos del escenario.
+     * @param elementos recibe un array donde la posicion 1 son los obstaculos, y la posicion 2 son los espacios.
+     */
+    public void mostrarElementos(Integer [] elementos){
+        System.out.println("Obstaculos: " + elementos[0]);
+        System.out.println("Espacios: " + elementos[1]);
+    }
 }
