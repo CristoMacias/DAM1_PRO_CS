@@ -38,20 +38,8 @@ public class App{
 			e.printStackTrace();
 		}
 
-		
 		controlador.iniciar(); //Llama al inicio del controlador
-
+		controlador.cerrarScanner();
 		
-		/* Instanciar jugadores y mostrar atributos para ver que se cargan y guardan jugadores si no existe
-		Jugador prueba = new Jugador("Sandra");	
-		Jugador prueba2 = new Jugador("Cristo");
-		Jugador prueba3 = new Jugador("Miguel");
-		System.out.println(prueba.getNombre()+" / "+prueba.getEmail());
-		System.out.println(prueba2.getNombre()+" / "+prueba2.getEmail());
-		System.out.println(prueba3.getNombre()+" / "+prueba3.getEmail());
-		*/
-		
-		
-	
 	}
 }

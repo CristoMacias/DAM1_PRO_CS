@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class Escenario{
 	private String nombre;
-	private List escenarioCargado = new ArrayList<>();
+	private List<String> escenarioCargado;
 	/**
 	 * Constructor de escenario
 	 */ 
@@ -27,6 +27,7 @@ public class Escenario{
 	/**
 	 * Método para cargar el atributo matrizEscenario , inicializa una matriz en tamaño y contenido desde un archivo .txt
 	 */ 
+	@SuppressWarnings ("unchecked")
 	public List<String> cargarEscenario(){
 		
 		Path pathEscenarios=Paths.get("escenarios"); //Creamos la ruta del directorio escenarios
@@ -37,8 +38,6 @@ public class Escenario{
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-		
-
 		return escenarioCargado; //Devuelve la lista con el escenario cargado.
 	}
 
@@ -55,7 +54,7 @@ public class Escenario{
 	 * @return devuelve el ArrayList de escenario
 	 */
 	public List<String> getEscenario(){
-		return escenarioCargado;
+		return this.escenarioCargado;
 	}
 
 }
