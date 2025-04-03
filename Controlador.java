@@ -58,6 +58,7 @@ public class Controlador {
         @SuppressWarnings ("unchecked")
         public boolean cargarJugador(String nombre){
             Path pathJugadores=Paths.get("jugadores");//Creamos la ruta del directorio jugadores
+
             Path pathJugador=pathJugadores.resolve(nombre+".bin"); //Creamos la ruta del archivo del jugador
             String email;
             if(Files.exists(pathJugador)){//Comprobamos si existe el fichero.bin del jugador
@@ -82,6 +83,7 @@ public class Controlador {
          */ 
         public void guardarJugador(String nombre, String email){
             Path pathJugadores = Paths.get("jugadores");//Creamos la ruta del directorio jugadores
+            comprobarDirectorioJugadores(pathJugadores);
             Path pathJugador = pathJugadores.resolve(nombre+".bin"); //Creamos el path del fichero del jugador
             try(ObjectOutputStream flujoSalidaJugador = new ObjectOutputStream(Files.newOutputStream(pathJugador))){ //Abrimos el flujo de salida para guardar los datos del jugador
                 flujoSalidaJugador.writeObject(nombre); //Guardamos/Escribimos el nombre
@@ -98,6 +100,19 @@ public class Controlador {
          */ 
         public void instanciarJugador(String nombre, String email){
             jugador=new Jugador(nombre,email);
+        }
+        /**
+         * Método para comprobar si no existe el directorio de jugadores, y si no existe, crearlo
+         */ 
+        public void comprobarDirectorioJugadores(Path pathJugadores){
+            try{
+                if(Files.notExists(pathJugadores)){
+                    Files.createDirectory(pathJugadores);
+                }
+            }catch(IOException e){
+                System.out.println("Error al comprobar y crear el directorio de jugadores.");
+                e.printStackTrace();
+            }
         }
 
         //METODOS PARA ESCENARIO
