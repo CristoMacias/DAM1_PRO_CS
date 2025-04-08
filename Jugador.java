@@ -7,18 +7,7 @@
  * Licence: GPL v3
  * 
  */ 
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-import java.io.IOException;
-
-import java.io.OutputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
-
-import java.io.InputStream;
-import java.io.ObjectInputStream;
-
 
 public class Jugador implements Serializable{ //Implementamos la interfaz Serializable para hacer que el jugador se serialice
 	private String nombre;

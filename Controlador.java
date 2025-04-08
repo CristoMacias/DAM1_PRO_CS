@@ -153,6 +153,8 @@ public class Controlador {
             }while(dificultad.isEmpty());
 
             Escenario escenario = new Escenario(dificultad); //Crea el objeto
+            escenario.cargarEscenario();
+            escenario.recrearEscenario();
             vistaEscenario.mostrarEscenario(escenario.getEscenario()); //Envía el objeto creado a la vista escenario para mostrarla
             vistaEscenario.mostrarElementos(escenario.contabilizarElementos()); //Llama al método que contabiliza los elementos de la clase escenario, ya que son características suyas.
 
