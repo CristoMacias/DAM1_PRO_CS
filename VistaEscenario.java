@@ -33,11 +33,22 @@ public class VistaEscenario {
 
         // Imprimir filas con borde lateral
         for (int i = 0; i < filas; i++) {
-            System.out.print("#"); // Borde izquierdo
+            if(i != 0){
+                System.out.print("#"); // Borde izquierdo
+            }
+            else{
+                System.out.print("E"); //Entrada
+            }
+            
             for (int j = 0; j < columnas; j++) {
                 System.out.print(escenario[i][j]);
             }
-            System.out.print("#"); // Borde derecho
+            if(i != filas -1){
+                System.out.print("#"); // Borde derecho
+            }
+            else{
+                System.out.print("S"); // Borde derecho
+            }
             System.out.println();
         }
 
