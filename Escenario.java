@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Escenario {
 	private String nombre;
 	private List<String> escenarioCargado;
-	char[][] escenario;
+	private char[][] escenario;
 
 	/**
 	 * Constructor de escenario
