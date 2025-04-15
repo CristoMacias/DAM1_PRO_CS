@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="355.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="334.0" prefWidth="640.0">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="640.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@fondoSplash.jpg" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" prefHeight="379.0" prefWidth="640.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="102.0" prefWidth="342.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LABYRINTHUS" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="66.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="274.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LA ÚLTIMA PRUEBA" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="63.0" text="CRÉDITOS:" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="15.0" prefWidth="58.0" text="SANDRA MOÑINO" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" prefHeight="13.0" prefWidth="58.0" text="CRISTO MACIAS" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="25.0" prefWidth="59.0" text="LICENCIA:" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label text="GPL v3" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Clear" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="39.0" prefWidth="182.0" text="PULSA CUALQUIER TECLA PARA COMENZAR" textFill="#ffe500">
+                     <font>
+                        <Font name="Power Clear" size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>

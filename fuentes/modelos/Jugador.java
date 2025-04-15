@@ -1,3 +1,6 @@
+package  modelos;
+
+import java.io.Serializable;
 /**
  * Clase Jugador
  * 
@@ -7,8 +10,6 @@
  * Licence: GPL v3
  * 
  */ 
-import java.io.Serializable;
-
 public class Jugador implements Serializable{ //Implementamos la interfaz Serializable para hacer que el jugador se serialice
 	private String nombre;
 	private String email;

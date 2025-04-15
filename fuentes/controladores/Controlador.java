@@ -1,9 +1,9 @@
-/**
- * Clase Controlador
- * 
- * @author Cristo Macias, Sandra Moñino
- * 
- */
+ package controladores;
+
+ import vistas.VistaEscenario;
+ import vistas.VistaJugador;
+ import modelos.Jugador;
+ import modelos.Escenario;
  import java.util.Scanner;  
  import java.nio.file.Path;
  import java.nio.file.Paths;
@@ -14,6 +14,12 @@
  import java.io.InputStream; 
  import java.io.ObjectOutputStream;
  import java.io.OutputStream;
+/**
+ * Clase Controlador
+ * 
+ * @author Cristo Macias, Sandra Moñino
+ * 
+ */
 public class Controlador {
 
     private static Scanner teclado = new Scanner(System.in);

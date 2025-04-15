@@ -1,3 +1,4 @@
+package vistas;
 import java.util.List;
 
 public class VistaEscenario {

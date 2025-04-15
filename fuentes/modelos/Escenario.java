@@ -1,3 +1,10 @@
+package modelos;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.Path;
+import java.io.IOException;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Clase Escenario
@@ -8,13 +15,6 @@
  * 
  * Licence: GPL v3
  */
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-import java.io.IOException;
-import java.util.List;
-import java.util.ArrayList;
-
 public class Escenario {
 	private String nombre;
 	private List<String> escenarioCargado;
