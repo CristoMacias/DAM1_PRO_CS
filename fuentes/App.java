@@ -4,6 +4,9 @@
  import java.nio.file.Files; 
  import java.io.IOException;
  import controladores.Controlador;
+ import controladores.ControladorPrincipal;
+ import javafx.application.Application;
+ import javafx.stage.Stage;
 /**
  * Videojuego
  * 
@@ -12,15 +15,20 @@
  * @since 2025-03-22
  * Licencia: GPL v3
  */
-public class App{
+public class App extends Application{
 	
 	public static void main(String[] args){
-
-		Controlador controlador = new Controlador();
 		comprobarArchivoDirectorios();
-		controlador.iniciar(); //Llama al inicio del controlador
-		controlador.cerrarScanner();
+		launch();
+		//Controlador controlador = new Controlador();
 		
+		//controlador.iniciar(); //Llama al inicio del controlador
+		//controlador.cerrarScanner();
+		
+	}
+	@Override
+	public void start(Stage stage) throws IOException{
+		new ControladorPrincipal(stage);
 	}
 	/**
 	 * Método para comprobar si existe e archivo de configuracion y los directorios de escenarios,jugadores,partidas, si no existen los crea 
@@ -43,10 +51,8 @@ public class App{
 				Files.createDirectories(pathPartidas);
 				//System.out.println("Se han creado el archivo de configuración y los directorios.");
 			}
-
 		}catch(IOException e){ //Capturamos las exceptiones 
 			e.printStackTrace();
 		}
-
 	}
 }

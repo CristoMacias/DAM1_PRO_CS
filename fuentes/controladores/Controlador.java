@@ -4,10 +4,7 @@
  import vistas.VistaJugador;
  import modelos.Jugador;
  import modelos.Escenario;
- import java.util.Scanner;  
- import java.nio.file.Path;
- import java.nio.file.Paths;
- import java.nio.file.Files;
+ import java.util.Scanner;
  import java.io.IOException; 
 
  import java.io.ObjectInputStream;
@@ -19,6 +16,7 @@
  import javafx.scene.Parent;
  import javafx.fxml.FXMLLoader;
  import javafx.fxml.FXML;
+ import javafx.stage.Stage;
 
 /**
  * Clase Controlador
@@ -37,79 +35,20 @@ public class Controlador {
     private Integer filaJugador;
     private Integer columnaJugador;
     private static Escenario escenario;
-    private static final String PATH_VISTAS = "vistas/";
-    public Controlador(){
+    private static final String PATH_VISTAS = "/vistas/";
+    private Stage ventana;
 
+    public Controlador(Stage stage){
+        this.ventana=stage;
     }
     /**
      * Método para iniciar el controlador
      */
     public void iniciar(){
-        obtenerJugador();
         elegirEscenario();
     }
 
     //METODOS PARA JUGADOR
-    /**
-     * Método para obtener el nombre del usuario
-     */ 
-    public void obtenerJugador(){
-        String nombre = "";
-        vistaJugador.pedirJugador();
-        nombre = pedirString();
-        if(!cargarJugador(nombre)){
-            String email = "";
-            vistaJugador.pedirEmail();
-            email=pedirString();
-            guardarJugador(nombre,email);//Llamamos al metodo guardarJugador para crear el fichero y guardar los datos
-            vistaJugador.mensajeJugadorGuardado();
-            instanciarJugador(nombre,email);//Volvemos a llamar al metodo cargarJugador() para que se instancie el jugador
-        }
-        vistaJugador.mostrarMensajeBienvenida(nombre);
-    }
-    /**
-     * Método para cargar los datos del jugador. Comprueba si existe el archivo jugador.bin
-     * @param nombre Recibe el nombre del jugador
-     * @return Devuelve true si existe y false si no
-     */ 
-    @SuppressWarnings ("unchecked")
-    public boolean cargarJugador(String nombre){
-        Path pathJugadores=Paths.get("jugadores");//Creamos la ruta del directorio jugadores
-
-        Path pathJugador=pathJugadores.resolve(nombre+".bin"); //Creamos la ruta del archivo del jugador
-        String email;
-        if(Files.exists(pathJugador)){//Comprobamos si existe el fichero.bin del jugador
-            try(ObjectInputStream flujoEntradaJugador = new ObjectInputStream(Files.newInputStream(pathJugador))){
-                email=(String) flujoEntradaJugador.readObject(); //Asignamos al email directamente leido del email
-                instanciarJugador(nombre,email); //Instanciammos el jugador con el nombre y el email
-                return true;
-            }catch(IOException e){
-                System.out.println("Otro error inesperado al leer el fichero jugador.");
-                e.printStackTrace();
-            }catch(ClassNotFoundException e){
-                System.out.println("Error con la clase (String) al convertir del fichero jugador.");
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
-    /**
-     * Método crear el fichero.bin del jugador y guardar sus datos
-     * @param nombre Recibe el nombre del jugador
-     * @param email Recibe el email del jugador
-     */ 
-    public void guardarJugador(String nombre, String email){
-        Path pathJugadores = Paths.get("jugadores");//Creamos la ruta del directorio jugadores
-        comprobarDirectorioJugadores(pathJugadores);
-        Path pathJugador = pathJugadores.resolve(nombre+".bin"); //Creamos el path del fichero del jugador
-        try(ObjectOutputStream flujoSalidaJugador = new ObjectOutputStream(Files.newOutputStream(pathJugador))){ //Abrimos el flujo de salida para guardar los datos del jugador
-            flujoSalidaJugador.writeObject(nombre); //Guardamos/Escribimos el nombre
-            flujoSalidaJugador.writeObject(email); //Guardamos/Escribimos el email
-        }catch(IOException e){
-            System.out.println("Error en el guardado del jugador en el fichero .bin");
-            e.printStackTrace();
-        }
-    }
     /**
      * Método para instanciar al jugador
      * @param nombre Recibe el valor del nombre
@@ -117,19 +56,6 @@ public class Controlador {
      */ 
     public void instanciarJugador(String nombre, String email){
         jugador=new Jugador(nombre,email);
-    }
-    /**
-     * Método para comprobar si no existe el directorio de jugadores, y si no existe, crearlo
-     */ 
-    public void comprobarDirectorioJugadores(Path pathJugadores){
-        try{
-            if(Files.notExists(pathJugadores)){
-                Files.createDirectory(pathJugadores);
-            }
-        }catch(IOException e){
-            System.out.println("Error al comprobar y crear el directorio de jugadores.");
-            e.printStackTrace();
-        }
     }
 
     //METODOS PARA ESCENARIO
@@ -321,6 +247,19 @@ public class Controlador {
             System.exit(1);
         }
         return vista;
+    }
+    /**
+     * Método para cambiar las vistas 
+     * @param controlador Recibe el controlador
+     * @param vista Recibe la vista
+     */ 
+    protected void cambiarVista(Scene vista){
+        ventana.setScene(vista);
+        ventana.show();
+    }
+
+    public Stage getVentana(){
+        return this.ventana;
     }
 }
 
