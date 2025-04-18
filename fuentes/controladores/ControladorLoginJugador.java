@@ -120,7 +120,6 @@ public class ControladorLoginJugador extends Controlador{
 	private void terminarLogin(){
 		controladorPp.cargarJugador(nombreJugador,emailJugador);
 		getVentana().close(); //Cerramos la ventana
-		//Llama a metodo para instanciar cnotroladormenu y vistamenu
-		//controladorPp.cargarMenu();
+		controladorPp.cargarMenu();
 	}
 }

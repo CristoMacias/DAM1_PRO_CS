@@ -2,13 +2,18 @@ package controladores;
 
 import javafx.stage.Stage;
 import modelos.Jugador;
+import modelos.Escenario;
+import java.util.Arrays;
 /**
  * Clase de Controlador Principal. Es el que se encargará de la lógica general del juego
  * @author Sandra Moñino, Cristo Macias
  */ 
 public class ControladorPrincipal extends Controlador{
 	private Jugador jugador;
-	//private ControladorLoginJugador controladorLogin;
+	private ControladorLoginJugador controladorLogin;
+	private ControladorMenu controladorMenu;
+	private ControladorEscenario controladorEscenario;
+	
 	public ControladorPrincipal(Stage stage){
 		super(stage);
 		new ControladorBienvenida(getVentana(),this);//Instanciamos el ControladorBienvenida para que se incie la vista
@@ -32,20 +37,16 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para instanciar y mostrar las vistas para el menú de selección de niveles
 	 */ 
 	public void cargarMenu(){
-		//new ControladorMenu(getVentana(),this); //this es este controlador, debe pasarse al constructor
-		// para que al terminar lo que sea se haga la llamada para los siguientes controladores/vistas
-		//el getVentana() es una llamada al getter para que se modifique la ventana del controlador padre, que 
-		// es el atributo Stage ventana que tendrán todos
-		//vistaMenu=cargarVista(this,"vistaMenu");
-		//cambiarVista(this.ventana,vistaMenu);
-		//Aquí tienes que instanciarte el controlador del menú o cargar la vista para el menu 
-		//y recoger los eventos
-		//Tienes que descomentar en controladorLoginJugador en la linea 125 para que se cargue
-		//cuando termines el login y vayas probando, okey ?? 
-		//La misma para el escenario. No tienes porqué usar otros controaldores la verdad,peudes ahcerlo
-		//todo aquí pero creo que así está más organziado
-		//Está todo comentado lo que creo que es más complicado y eso.
-		//Echa un buen vistazo a los controladores para que veas la estructura
-		//Si decides no usar más controladores y usar este puedes, pero usa este método para ya cambiar 
+		controladorMenu = new ControladorMenu(getVentana(),this);
+	}
+
+	/**
+	 * Método para instanciar el escenario seleccionado y mostrar las vistas para el escenario
+	 */
+	public void cargarEscenario(String dificultad){
+		Escenario escenario = new Escenario(dificultad);
+		//System.out.println("¿matriz cargada? " + Arrays.deepToString(escenario.getEscenario()));
+		controladorEscenario = new ControladorEscenario(getVentana(), this, escenario);
+		
 	}
 }
