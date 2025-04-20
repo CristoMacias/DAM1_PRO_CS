@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 20px; -fx-background-color: #323232;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="43.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="¡ENHORABUENA!" textFill="#ffe500">
+         <font>
+            <Font name="Power Green" size="64.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNombreJugador" alignment="CENTER" prefHeight="24.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" textFill="#ffe500">
+         <font>
+            <Font name="Power Green" size="31.0" />
+         </font>
+      </Label>
+      <Label style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="FIN DEL LABERINTO" textFill="#ffe500">
+         <font>
+            <Font name="Power Green" size="29.0" />
+         </font>
+      </Label>
+      <StackPane maxHeight="73.0" minHeight="40.0" prefHeight="73.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="81.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../brilloFondo.gif" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="73.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../jugador1.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="39.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffe500">
+         <font>
+            <Font name="Power Green" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</VBox>

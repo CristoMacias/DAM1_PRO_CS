@@ -15,13 +15,13 @@ public class ControladorMenu extends Controlador{
 	@FXML private Button botonFacil;
 	@FXML private Button botonMedio;
 	@FXML private Button botonDificil;
-	private ControladorPrincipal controladorPp;
+	@FXML private Button botonSalir;
 
 	public ControladorMenu(Stage stage, ControladorPrincipal controladorPp){
 		super(stage);
 		this.controladorPp=controladorPp;
 		this.vistaMenu = cargarVista(this, "vistaMenu");
-		getVentana().setTitle("Menu dificultad");
+		ventana.setTitle("Menu dificultad");
 		cambiarVista(vistaMenu);
 		capturarEventos();
 	}
@@ -30,10 +30,11 @@ public class ControladorMenu extends Controlador{
 		botonFacil.setOnAction(event -> cargarEscenario("facil"));
 		botonMedio.setOnAction(event -> cargarEscenario("medio"));
 		botonDificil.setOnAction(event -> cargarEscenario("dificil"));
+		botonSalir.setOnAction(event -> controladorPp.salirJuego());
 	}
 
 	private void cargarEscenario(String dificultad){
-		getVentana().close(); //Cerramos la ventana
+		ventana.close(); //Cerramos la ventana
 		controladorPp.cargarEscenario(dificultad);
 	}
 

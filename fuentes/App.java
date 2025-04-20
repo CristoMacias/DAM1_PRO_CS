@@ -8,7 +8,9 @@
  import javafx.application.Application;
  import javafx.stage.Stage;
 /**
- * Videojuego
+ * LABYRINTHUS: LA ÚLTIMA PRUEBA
+ * 
+ * Este programa es un videojuego de un laberinto con registro de jugador con nombre y email y menú para elegir entre 3 niveles distintos.
  * 
  * @author Sandra Moñino, Cristo Macias
  * @version 1.0
@@ -20,11 +22,6 @@ public class App extends Application{
 	public static void main(String[] args){
 		comprobarArchivoDirectorios();
 		launch();
-		//Controlador controlador = new Controlador();
-		
-		//controlador.iniciar(); //Llama al inicio del controlador
-		//controlador.cerrarScanner();
-		
 	}
 	@Override
 	public void start(Stage stage) throws IOException{

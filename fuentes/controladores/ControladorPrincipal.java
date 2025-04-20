@@ -1,9 +1,11 @@
 package controladores;
 
 import javafx.stage.Stage;
+import javafx.scene.Scene;
 import modelos.Jugador;
 import modelos.Escenario;
-import java.util.Arrays;
+import javafx.scene.control.Label;
+import javafx.fxml.FXML;
 /**
  * Clase de Controlador Principal. Es el que se encargará de la lógica general del juego
  * @author Sandra Moñino, Cristo Macias
@@ -13,16 +15,20 @@ public class ControladorPrincipal extends Controlador{
 	private ControladorLoginJugador controladorLogin;
 	private ControladorMenu controladorMenu;
 	private ControladorEscenario controladorEscenario;
-	
+	@FXML private Label labelNombreJugador;
+	/**
+	 * Constrcutor para ControladorPrincipal
+	 * @param stage Recibe el stage de ventana
+	 */ 
 	public ControladorPrincipal(Stage stage){
 		super(stage);
-		new ControladorBienvenida(getVentana(),this);//Instanciamos el ControladorBienvenida para que se incie la vista
+		new ControladorBienvenida(ventana,this);//Instanciamos el ControladorBienvenida para que se incie la vista
 	}
 	/**
 	 * Método para instanciar y mostrar las vistas para el login además de la lógica.
 	 */ 
 	public void cargarLogin(){
-		new ControladorLoginJugador(getVentana(),this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
+		new ControladorLoginJugador(ventana,this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
 	}
 	/**
 	 * Método para instanciar al jugador
@@ -37,7 +43,7 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para instanciar y mostrar las vistas para el menú de selección de niveles
 	 */ 
 	public void cargarMenu(){
-		controladorMenu = new ControladorMenu(getVentana(),this);
+		controladorMenu = new ControladorMenu(ventana,this);
 	}
 
 	/**
@@ -45,8 +51,16 @@ public class ControladorPrincipal extends Controlador{
 	 */
 	public void cargarEscenario(String dificultad){
 		Escenario escenario = new Escenario(dificultad);
-		//System.out.println("¿matriz cargada? " + Arrays.deepToString(escenario.getEscenario()));
-		controladorEscenario = new ControladorEscenario(getVentana(), this, escenario);
-		
+		controladorEscenario = new ControladorEscenario(ventana, this,escenario);
+	}
+
+	public void cargarFin(){
+		Scene vistaFinal=cargarVista(this,"vistaFinJuego");
+		ventana.setTitle("FIN"); // Cambiar el titulo de la ventana
+		cambiarVista(vistaFinal);//Cambiamos la vista
+		labelNombreJugador.setText("¡"+jugador.getNombre()+"!");
+		vistaFinal.setOnKeyPressed(event->{ //Evento para cambiar la vista pulsando cualquier tecla
+			new ControladorMenu(ventana,this);
+		});
 	}
 }

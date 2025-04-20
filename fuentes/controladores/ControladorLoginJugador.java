@@ -13,6 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.InputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
+import javafx.scene.input.KeyCode;
 /**
  * Clase ControladorLoginJugador
  * Hereda de Controlador. Se encargará de manejar la lógica y las vistas para el login del jugador.
@@ -31,17 +32,17 @@ public class ControladorLoginJugador extends Controlador{
 	private String emailJugador;
 	private Path pathJugadores=Paths.get("jugadores");
 	private Path pathJugador;
-	private ControladorPrincipal controladorPp;
 	/**
 	 * Constructor para el controlador
 	 * @param ventana Recibe el stage/ventana
+	 * @param controladorPp Recibe el controlador principal 
 	 */ 
 	public ControladorLoginJugador(Stage stage,ControladorPrincipal controladorPp){
 		super(stage);
 		this.controladorPp=controladorPp;
 		this.vistaLoginNombre=cargarVista(this,"vistaLoginNombre"); //Instanciamos al vista llamando al método del super cargarVista
 		this.vistaLoginEmail=cargarVista(this,"vistaLoginEmail"); 
-		getVentana().setTitle("Login Jugador"); //Cambiamos el titulo de de la ventana
+		ventana.setTitle("Login Jugador"); //Cambiamos el titulo de de la ventana
 		cambiarVista(vistaLoginNombre); // Cambiamos la vista para pasar de la bienvenida al del login del jugador
 		capturarEventosNombre(); //Llamamos al método para capturar el boton del login nombre
 	}
@@ -51,8 +52,17 @@ public class ControladorLoginJugador extends Controlador{
 	private void capturarEventosNombre(){
 		botonNombre.setOnAction(event->{
 			nombreJugador=campoNombre.getText().trim().toLowerCase();//Recogemos el nombre del jugador quitando espacios y en minúscula
-			if(!nombreJugador.isEmpty() && !nombreJugador.isBlank()){
+			if(!nombreJugador.isEmpty() && !nombreJugador.isBlank()){//Comprobamos que el nombre del jugador ni está vacio ni tiene espacios
 				comprobarExiste();//Llamamos al método comprobarExiste para ver si el jugador existe
+			}
+		});
+		//Recoge el evento si presiona tecla Enter para hacer lo mismo que si hace click al boton
+		vistaLoginNombre.setOnKeyPressed(event->{
+			if(event.getCode()==KeyCode.ENTER){//Si el evento es pulsar el ENTER
+				nombreJugador=campoNombre.getText().trim().toLowerCase();//Recogemos el nombre del jugador quitando espacios y cambiando a minúsculas
+				if(!nombreJugador.isEmpty() && !nombreJugador.isBlank()){//COmprobamos que no está vacio ni tiene espacios
+					comprobarExiste();//Llamada al método comprobarExiste para comprobar por el nombre si existe el fichero del jugador
+				}
 			}
 		});
 	}
@@ -60,11 +70,21 @@ public class ControladorLoginJugador extends Controlador{
 	 * Método para capturar el evento del botonEmail para recoger el email del jugador
 	 */ 
 	private void capturarEventosEmail(){
+
 		botonEmail.setOnAction(event->{
 			emailJugador=campoEmail.getText().trim().toLowerCase();//Recogemos el email del jugador, quitando espacioes y en minusucla
 			if(!emailJugador.isEmpty() && !emailJugador.isBlank() && emailJugador.contains("@")){ //Comprobar que el email no tenga espacios ni esté vacio ni le falte el @
 				guardarJugador();//Llamamos al metodo guardarJugador para guardar los datos
 			}
+		});
+		//Recoge el evento si presiona tecla Enter para hacer lo mismo que si hace click al boton
+		vistaLoginEmail.setOnKeyPressed(event->{
+			if(event.getCode()==KeyCode.ENTER){//Comprobamos si el evento es pulsado de un ENTER 
+				emailJugador=campoEmail.getText().trim().toLowerCase();//Recogemos el email del jugador, quitando espacioes y en minusucla
+				if(!emailJugador.isEmpty() && !emailJugador.isBlank() && emailJugador.contains("@")){//Comprobar que el email no tenga espacios ni esté vacio ni le falte el @
+					guardarJugador();//Llamada al método guardar jugador para crear su ficheor y guardar el nombre y el email
+				}	
+			}		
 		});
 	}
 	/**
@@ -99,27 +119,26 @@ public class ControladorLoginJugador extends Controlador{
 			System.out.println("Error en el guardado del jugador");
 			e.printStackTrace();
 		}
-		terminarLogin();
+		terminarLogin();//Llamada al método terminar el login al guardar el jugador
 	}
 	/**
 	 * Método para comprobar si existe el fichero con el nombre del jugador, si no existe muestra la vista para epdir el email y llama al metodo guardar jugador
 	 */ 
 	private void comprobarExiste(){
 		if(!cargarJugador()){//Llamamos al método cargarJugador para comprobar si existe el jugador,esperamos que si devuelve false entonces ejectuamos el siguiente bloque
-			getVentana().setTitle("Registro jugador");//Cambiamos el título de la ventana
+			ventana.setTitle("Registro jugador");//Cambiamos el título de la ventana
 			cambiarVista(vistaLoginEmail);//Llamamos al método para cambiar al vista,le pasamos la ventana,y la vista
 			capturarEventosEmail();//Llamamos al método para capturar el evento para el bóton de aceptar de email
 			return;//Terminamos para que no pase a lo siguiente 
 		}
 		terminarLogin();//Llamamos al método para terminar el login si existe el jugador
-	
 	}
 	/**
 	 *Método para terminar el login 
 	 */ 
 	private void terminarLogin(){
-		controladorPp.cargarJugador(nombreJugador,emailJugador);
-		getVentana().close(); //Cerramos la ventana
-		controladorPp.cargarMenu();
+		controladorPp.cargarJugador(nombreJugador,emailJugador); //Cargamos los datos del jugador
+		ventana.close(); //Cerramos la ventana
+		controladorPp.cargarMenu();//Llamada al metodo cargarMenu del controladorPp para instanciar el controlador del menu y cargar su vista
 	}
 }

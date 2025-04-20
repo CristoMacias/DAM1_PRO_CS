@@ -9,16 +9,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="tFieldUsuario" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: bfc4c2;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<HBox fx:id="tFieldUsuario" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="349.0" style="-fx-padding: 3px; -fx-spacing: 10px;">
+      <VBox alignment="CENTER" maxHeight="150.0" maxWidth="402.0" minHeight="148.0" minWidth="300.0" prefHeight="148.0" prefWidth="402.0" style="-fx-spacing: 15px;">
          <children>
-            <Label alignment="TOP_CENTER" prefHeight="29.0" prefWidth="343.0" text="LABYRINTHUS: LA ÚLTIMA PRUEBA" textFill="#8f214b">
+            <Label alignment="TOP_CENTER" prefHeight="30.0" prefWidth="356.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="LABYRINTHUS: LA ÚLTIMA PRUEBA" textFill="#ffd200">
                <font>
-                  <Font name="Power Green" size="24.0" />
+                  <Font name="Power Green" size="28.0" />
                </font>
             </Label>
-            <Label prefHeight="26.0" prefWidth="148.0" text="Introduce tu nombre:">
+            <Label prefHeight="26.0" prefWidth="215.0" text="Introduce el nombre de jugador:" textFill="WHITE">
                <font>
                   <Font name="Power Green" size="17.0" />
                </font>
