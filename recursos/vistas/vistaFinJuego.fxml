@@ -28,17 +28,22 @@
          <children>
             <ImageView fitHeight="81.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../brilloFondo.gif" />
+                  <Image url="@../../compilados/brilloFondo.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="73.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../jugador1.gif" />
+                  <Image url="@../../compilados/jugador.gif" />
                </image>
             </ImageView>
          </children>
       </StackPane>
-      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="39.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffe500">
+      <Label fx:id="labelTotalChocado" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="39.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="TOTAL VECES CHOCADO:" textFill="#ffe500">
+         <font>
+            <Font name="Power Green" size="13.0" />
+         </font>
+      </Label>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="27.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffe500">
          <font>
             <Font name="Power Green" size="12.0" />
          </font>

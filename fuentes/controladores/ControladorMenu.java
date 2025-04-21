@@ -30,7 +30,7 @@ public class ControladorMenu extends Controlador{
 		botonFacil.setOnAction(event -> cargarEscenario("facil"));
 		botonMedio.setOnAction(event -> cargarEscenario("medio"));
 		botonDificil.setOnAction(event -> cargarEscenario("dificil"));
-		botonSalir.setOnAction(event -> controladorPp.salirJuego());
+		botonSalir.setOnAction(event -> controladorPp.salirJuego());//Capturamos el evento del boton salir para terminar el juego
 	}
 
 	private void cargarEscenario(String dificultad){

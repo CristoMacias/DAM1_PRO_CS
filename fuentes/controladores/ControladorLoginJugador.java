@@ -95,6 +95,7 @@ public class ControladorLoginJugador extends Controlador{
 		pathJugador=pathJugadores.resolve(nombreJugador+".bin");//Creamos el path del fichero del jugador
 		if(Files.exists(pathJugador)){//Comprobamos si existe el fichero.bin del jugador
 			try(ObjectInputStream flujoEntradaJugador=new ObjectInputStream(Files.newInputStream(pathJugador))){
+				nombreJugador=(String) flujoEntradaJugador.readObject();//Asignamos al nombre
 				emailJugador=(String) flujoEntradaJugador.readObject();//Asignamos al email directamente leido del email
 				return true;
 			}catch(IOException e){

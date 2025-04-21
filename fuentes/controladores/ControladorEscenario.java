@@ -23,7 +23,6 @@ import modelos.Escenario;
 public class ControladorEscenario extends Controlador{
 	private Scene vista1;
 	private Scene vista2;
-	private Scene vistaFinal;
 	private Escenario escenario;
 	private char[][] matriz;
 	private Integer filas;
@@ -51,7 +50,6 @@ public class ControladorEscenario extends Controlador{
 		//Cargamos las vistas
 		vista1 = cargarVista(this,"vista1Escenario");
 		vista2 = cargarVista(this,"vista2Escenario");
-		vistaFinal=cargarVista(this,"vistaFinJuego");
 		HBox raizVista1 = (HBox) vista1.getRoot();
 		VBox raizVista2 = (VBox) vista2.getRoot();
 		raizVista1.getChildren().add(raizVista2);
@@ -108,7 +106,7 @@ public class ControladorEscenario extends Controlador{
 		for(int i = 0;i < cols; i++){
 			grid.getColumnConstraints().add(new ColumnConstraints());
 		}
-		Image imagen = new Image(this.getClass().getResourceAsStream("/vistas/elementos.png"));
+		Image imagen = new Image(this.getClass().getResourceAsStream("/elementos.png"));
 		for(int i = 0; i < filas; i++){
 				for(int j = 0; j < cols; j++){
 				StackPane stackPane = new StackPane();
@@ -122,17 +120,17 @@ public class ControladorEscenario extends Controlador{
 			}
 		}
 	}
-
+	/**
+	 * Método para comenzar el juego con el jugador. Carga la imagen dell jugador, crea su iamgeview y lo añade
+	 */ 
 	private void comenzarJuego(){
 		//Mostrar jugador en el escenario
-		imagenJugador=new Image(this.getClass().getResourceAsStream("/jugador1.gif"));//Instanciamos la iamgen para el jugador
+		imagenJugador=new Image(this.getClass().getResourceAsStream("/jugador.gif"));//Instanciamos la iamgen para el jugador
 		ivJugador=new ImageView(imagenJugador);//Creamos el ImageView del jugador
 		ivJugador.setFitWidth(32);//Ajustamos ancho
 		ivJugador.setFitHeight(32);//Ajustamos largo
 		ivJugador.setPreserveRatio(true);//Nos aseguremos que no se deforme
-		//Rectangle2D vpJugador=new Rectangle2D(1*LADO,1*LADO,LADO,LADO);
-		//ivJugador.setViewport(vpJugador);
-		stackPanes[1][1].getChildren().add(ivJugador);//Lo colocamos a la primera posicion
+		colocarJugador();
 		ventana.setTitle("Laberinto"); // Cambiamos el titulo
 		cambiarVista(vista1); //Cambiamos a la ista 1
 		captuarMovimiento();
@@ -189,10 +187,12 @@ public class ControladorEscenario extends Controlador{
 		}
 		if(fila<1 || fila>filas-2 ||columna>cols-2 ||columna<1){//Comprobamos que no intente pasar las paredes
 			labelOuch.setText("¡OUCH! Todavía no puedes traspasar paredes...");//Mensaje si intenta pasar las paredes
+			controladorPp.getJugador().chocarse();
 			return;//Terminamos la funcion
 		}
 		if(matriz[fila][columna]=='X'){ //Para controlar los obstáculos 
 			labelOuch.setText("¡OUCH! Eso ha dolido...");//Mensaje si se choca contra un obstaculo
+			controladorPp.getJugador().chocarse();
 			return;//Terminamos la funcion
 		}
 		stackPanes[fila][columna].getChildren().add(ivJugador); //Colocamos al jugador en la fila y columna
@@ -206,12 +206,7 @@ public class ControladorEscenario extends Controlador{
 	private void ganarJuego(){
 		if(filaJugador==filas-2 && columnaJugador==cols-1){//Si la fila del jugador y colummna del jugador es la del final
 			ventana.close();//Cerramos la ventana anterior
-			cambiarVista(vistaFinal);//Cambias la vista
-			ventana.setTitle("FIN"); // Cambiar el titulo de la ventana
-			vistaFinal.setOnKeyPressed(event->{ //Evento para camb
-				controladorPp.cargarFin();
-				new ControladorMenu(ventana,controladorPp);
-			});
+			controladorPp.cargarFin();
 		}
 	}
 	/**
@@ -219,6 +214,22 @@ public class ControladorEscenario extends Controlador{
 	 */ 
 	private void reiniciarLabel(){
 		labelOuch.setText("");
+	}
+	/**
+	 * Método para colocar al jugador en la primera posicion disponible
+	 */ 
+	private void colocarJugador(){
+		for(int i=1;i<matriz.length;i++){
+			for(int j=1;j<matriz[i].length;j++){
+				if(matriz[i][j]==' '){
+					stackPanes[i][j].getChildren().add(ivJugador);
+					filaJugador=i;
+					columnaJugador=j;
+					return;
+				}
+			}
+		}
+		
 	}
 
 }
