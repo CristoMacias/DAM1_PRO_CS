@@ -62,11 +62,15 @@ public class ControladorPrincipal extends Controlador{
 		cambiarVista(vistaFinal);//Cambiamos la vista
 		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
 		labelTotalChocado.setText("TOTAL VECES CHOCADO: "+jugador.getTotalChocado());
-		vistaFinal.setOnKeyPressed(event->{ //Evento para cambiar la vista pulsando cualquier tecla
+		vistaFinal.setOnKeyPressed(event->{
+			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
 			new ControladorMenu(ventana,this);
 		});
 	}
 	
+	/**
+	 * Getter de jugador
+	 */
 	public Jugador getJugador(){
 		return this.jugador;
 	}

@@ -17,6 +17,11 @@ public class ControladorMenu extends Controlador{
 	@FXML private Button botonDificil;
 	@FXML private Button botonSalir;
 
+	/**
+	 * Contructor del menu
+	 * @param stage recibe el stage del controlador, desde la herencia
+	 * @param controladorPp Recibe el controlador principal
+	 */
 	public ControladorMenu(Stage stage, ControladorPrincipal controladorPp){
 		super(stage);
 		this.controladorPp=controladorPp;
@@ -26,6 +31,9 @@ public class ControladorMenu extends Controlador{
 		capturarEventos();
 	}
 
+	/**
+ 	* Captura los eventos de los botones.
+ 	*/
 	private void capturarEventos(){
 		botonFacil.setOnAction(event -> cargarEscenario("facil"));
 		botonMedio.setOnAction(event -> cargarEscenario("medio"));
@@ -33,6 +41,10 @@ public class ControladorMenu extends Controlador{
 		botonSalir.setOnAction(event -> controladorPp.salirJuego());//Capturamos el evento del boton salir para terminar el juego
 	}
 
+	/**
+	 * Método para cargar el escenario y recibe de capturar eventos la dificultad elegida
+	 * @param dificultad Dificultad elegida por el usuario que a su vez es el nombre del txt
+	 */
 	private void cargarEscenario(String dificultad){
 		ventana.close(); //Cerramos la ventana
 		controladorPp.cargarEscenario(dificultad);

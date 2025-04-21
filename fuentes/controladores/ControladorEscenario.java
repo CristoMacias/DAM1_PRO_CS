@@ -37,6 +37,13 @@ public class ControladorEscenario extends Controlador{
 	private ImageView ivJugador;
 	private Integer filaJugador=1;
 	private Integer columnaJugador=1;
+
+	/**
+	 * Controlador de Escenario
+	 * @param stage Lo recibe de la herencia del Controlador
+	 * @param controladorPp Para instanciar el controlador principal
+	 * @param escenario Recibe el escenario creado.
+	 */
 	public ControladorEscenario(Stage stage, ControladorPrincipal controladorPp, Escenario escenario){
 		super(stage);
 		this.controladorPp=controladorPp;
@@ -94,11 +101,17 @@ public class ControladorEscenario extends Controlador{
 		comenzarJuego();
 	}
 
+	/**
+	 * Asignas a las celdas elegidas el imageView en la fila y columna indicadas.
+	 */
 	private void asignarCelda(Rectangle2D viewport, Integer fila, Integer col){
 		ImageView imageView = (ImageView) stackPanes[fila][col].getChildren().get(0);
 		imageView.setViewport(viewport);
 	}
 
+	/**
+	 * Método para crear el GridPane con los filas y columnas de la matriz hecha en la versión anterior del videojuego
+	 */
 	private void crearGrid(Integer filas, Integer cols){
 		for(int i = 0;i < filas; i++){
 			grid.getRowConstraints().add(new RowConstraints());
