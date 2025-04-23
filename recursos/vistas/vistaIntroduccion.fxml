@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #323232;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <ImageView fitHeight="600.0" fitWidth="1142.0" opacity="0.53" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../castillo.png" />
+               </image>
+            </ImageView>
+            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgba(0, 0, 0, 0.05);">
+               <children>
+                  <Label alignment="CENTER" prefHeight="194.0" prefWidth="672.0" text="Historia de LABYRINTHUS: LA ULTIMA PRUEBA" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="38.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="36.0" prefWidth="570.0" text="&quot;Hace siglos, en un castillo antiguo y olvidado, se tejió una maldición que atrapó al alma de " textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="554.0" text=" un espectro en sus muros de piedra. Eres ese espíritu, un fantasma rojo, condenado a" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="572.0" text="vagar eternamente por los pasillos sombríos de esta fortaleza. Las paredes de piedra gris" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="58.0" prefWidth="618.0" text="se elevan a tu alrededor, testigos mudos de un pasado oscuro que aún susurra entre las grietas." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="69.0" prefWidth="498.0" text="El castillo, con sus laberintos interminables, está lleno de secretos y trampas, " textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="14.0" prefWidth="587.0" text="pero lo que más deseas es  la libertad, escapar de este lugar que te retiene en la oscuridad.&quot; " textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="146.0" prefWidth="800.0" text="¿Serás capaz de encontrar la salida..." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="17.0" prefWidth="958.0" text="o" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_CENTER" prefHeight="126.0" prefWidth="789.0" text="estarás condenado a vagar para siempre entre las sombras de este castillo?" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="346.0" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="16.0" prefWidth="600.0" text="Para moverte, usa las teclas WASD:" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="346.0" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="332.0" text="-W para moverte hacia arriba." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="332.0" text="-A para moverte hacia la izquierda." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="331.0" text="-S para moverte hacia abajo." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="18.0" prefWidth="331.0" text="-D para moverte hacia la derecha." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="21.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="346.0" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="111.0" prefWidth="266.0" text="Recuerda, el camino no será fácil." textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label prefHeight="16.0" prefWidth="747.0" text=" El castillo está lleno de obstáculos y secretos que solo un espíritu como tú puede descubrir... " textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="346.0" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="69.0" prefWidth="594.0" text="¿Podrás desvelar los misterios y encontrar tu libertad?" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="26.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="113.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../jugador.gif" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="73.0" prefWidth="346.0" text="(Pulsa cualquier tecla para comenzar la huida...)" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="23.0" prefWidth="346.0" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="15.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>

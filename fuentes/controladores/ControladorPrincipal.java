@@ -74,4 +74,13 @@ public class ControladorPrincipal extends Controlador{
 	public Jugador getJugador(){
 		return this.jugador;
 	}
+
+	public void cargarIntroduccion(){
+		Scene vistaIntroduccion=cargarVista(this,"vistaIntroduccion");
+		cambiarVista(vistaIntroduccion);
+		vistaIntroduccion.setOnKeyPressed(event->{
+			ventana.close();
+			cargarLogin();
+		});
+	}
 }
