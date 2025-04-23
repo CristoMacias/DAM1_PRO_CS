@@ -16,7 +16,7 @@ public class ControladorBienvenida extends Controlador{
 	public ControladorBienvenida(Stage stage,ControladorPrincipal controladorPp){
 		super(stage);
 		this.controladorPp=controladorPp;//Instanciamos el controlador principal
-		this.vistaBienvenida=cargarVista(this,"prueba");//Cargamos la vista de bienvenida
+		this.vistaBienvenida=cargarVista(this,"vistaBienvenida");//Cargamos la vista de bienvenida
 		cambiarVista(vistaBienvenida);//Llamada al metodo cambiarVista para mostrar la vistaBienvenida
 		ventana.setTitle("Bienvenida a LABYRINTHUS");//Cambiamos el titulo de la ventana/stage
 		capturarEventos();//Llamada a caputar el evento para cambiar de ventana

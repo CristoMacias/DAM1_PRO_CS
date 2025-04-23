@@ -16,7 +16,7 @@
                   <Image url="@../castillo.png" />
                </image>
             </ImageView>
-            <VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgba(0, 0, 0, 0.05);">
+            <VBox alignment="CENTER" maxHeight="600.0" maxWidth="800.0" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: rgba(0, 0, 0, 0.05);">
                <children>
                   <Label alignment="CENTER" prefHeight="194.0" prefWidth="672.0" text="Historia de LABYRINTHUS: LA ULTIMA PRUEBA" textFill="#ffcc00">
                      <font>
