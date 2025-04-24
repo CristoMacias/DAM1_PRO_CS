@@ -1,0 +1,12 @@
+COMANDOS PARA EJECUTAR EN LINUX
+"Donde estan los ?? debes poner la ruta donde se encuentra almacenado tu javafx".
+
+Crear directorio
+mkdir compilados
+Copiar
+cp -r recursos/* compilados/
+--COMPILAR--
+javac --module-path "$HOME/??/javafx/lib" --add-modules javafx.fxml,javafx.controls $(find fuentes -name*.java")
+
+--EJECUTAR--
+java --module-path "$HOME/??/javafx/lib" --add-modules javafx.fxml,javafx.controls -cp compilados App
