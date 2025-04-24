@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 20px; -fx-background-color: #323232;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" style="-fx-spacing: 20px; -fx-background-color: #323232;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="43.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="¡ENHORABUENA!" textFill="#ffe500">
+      <Label prefHeight="43.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="¡ENHORABUENA!" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="64.0" />
          </font>
@@ -19,7 +19,7 @@
             <Font name="Power Green" size="31.0" />
          </font>
       </Label>
-      <Label style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="FIN DEL LABERINTO" textFill="#ffe500">
+      <Label style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="FIN DEL LABERINTO" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="29.0" />
          </font>
@@ -38,12 +38,12 @@
             </ImageView>
          </children>
       </StackPane>
-      <Label fx:id="labelTotalChocado" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="39.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="TOTAL VECES CHOCADO:" textFill="#ffe500">
+      <Label fx:id="labelTotalChocado" alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="39.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="TOTAL VECES CHOCADO:" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="13.0" />
          </font>
       </Label>
-      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="27.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffe500">
+      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="27.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="12.0" />
          </font>

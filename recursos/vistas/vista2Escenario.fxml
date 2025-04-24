@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="400.0" maxWidth="200.0" minHeight="400.0" minWidth="200.0" spacing="20.0" style="-fx-background-color: #323232; -fx-spacing: 10px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #323232; -fx-spacing: 10px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="63.0" prefWidth="78.0" text="Vista 2" textFill="WHITE">
+      <Label prefHeight="63.0" prefWidth="155.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="ESTADÍSTICAS" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="28.0" />
          </font></Label>

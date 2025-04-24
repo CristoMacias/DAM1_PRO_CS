@@ -37,6 +37,7 @@ public class ControladorEscenario extends Controlador{
 	private ImageView ivJugador;
 	private Integer filaJugador=1;
 	private Integer columnaJugador=1;
+	@FXML private Label labelTitulo;
 
 	/**
 	 * Controlador de Escenario
@@ -146,6 +147,7 @@ public class ControladorEscenario extends Controlador{
 		colocarJugador();
 		ventana.setTitle("Laberinto"); // Cambiamos el titulo
 		cambiarVista(vista1); //Cambiamos a la ista 1
+		labelTitulo.setText("NIVEL "+escenario.getNombre().toUpperCase());
 		captuarMovimiento();
 	}
 
@@ -195,16 +197,16 @@ public class ControladorEscenario extends Controlador{
 			return;//Terminamos la funcion
 		}
 		if(fila==1 && columna==0){//Mensaje por si intenta volver a al puerta de entrada
-			labelOuch.setText("No seas cobarde...");//Mensaje de cobarde si intenta ir por la puerta de inicio
+			labelOuch.setText(" No seas cobarde...");//Mensaje de cobarde si intenta ir por la puerta de inicio
 			return;//Terminamos la funcion
 		}
 		if(fila<1 || fila>filas-2 ||columna>cols-2 ||columna<1){//Comprobamos que no intente pasar las paredes
-			labelOuch.setText("¡OUCH! Todavía no puedes traspasar paredes...");//Mensaje si intenta pasar las paredes
+			labelOuch.setText(" ¡OUCH! Todavía no puedes traspasar paredes...");//Mensaje si intenta pasar las paredes
 			controladorPp.getJugador().chocarse();
 			return;//Terminamos la funcion
 		}
 		if(matriz[fila][columna]=='X'){ //Para controlar los obstáculos 
-			labelOuch.setText("¡OUCH! Eso ha dolido...");//Mensaje si se choca contra un obstaculo
+			labelOuch.setText(" ¡OUCH! Eso ha dolido...");//Mensaje si se choca contra un obstaculo
 			controladorPp.getJugador().chocarse();
 			return;//Terminamos la funcion
 		}

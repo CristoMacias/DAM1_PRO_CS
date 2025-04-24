@@ -18,42 +18,42 @@
             </ImageView>
             <VBox alignment="TOP_CENTER" prefHeight="379.0" prefWidth="640.0">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="144.0" prefWidth="566.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LABYRINTHUS" textFill="#ffe500">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="144.0" prefWidth="566.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LABYRINTHUS" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="96.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="414.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LA ÚLTIMA PRUEBA" textFill="#ffe500">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="80.0" prefWidth="414.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LA ÚLTIMA PRUEBA" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="52.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="133.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="CRÉDITOS:" textFill="#ffe500">
+                  <Label alignment="CENTER" prefHeight="47.0" prefWidth="133.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="CRÉDITOS:" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="34.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="SANDRA MOÑINO" textFill="#ffe500">
+                  <Label alignment="CENTER" prefHeight="34.0" prefWidth="131.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="SANDRA MOÑINO" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" prefHeight="13.0" prefWidth="117.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="CRISTO MACIAS" textFill="#ffe500">
+                  <Label alignment="TOP_CENTER" prefHeight="13.0" prefWidth="117.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="CRISTO MACIAS" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="BOTTOM_CENTER" prefHeight="70.0" prefWidth="133.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LICENCIA:" textFill="#ffe500">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="70.0" prefWidth="133.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="LICENCIA:" textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="34.0" />
                      </font>
                   </Label>
-                  <Label alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="51.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="GPL v3" textFill="#ffe500">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="30.0" prefWidth="51.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="GPL v3" textFill="#ffcc00">
                      <font>
                         <Font name="Power Clear" size="20.0" />
                      </font>
                   </Label>
-                  <Label alignment="BOTTOM_CENTER" prefHeight="42.0" prefWidth="346.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(PULSA CUALQUIER TECLA PARA COMENZAR)" textFill="#ffe500">
+                  <Label alignment="BOTTOM_CENTER" prefHeight="42.0" prefWidth="346.0" style="-fx-font-weight: bold; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(PULSA CUALQUIER TECLA PARA COMENZAR)" textFill="#ffcc00">
                      <font>
                         <Font name="Power Clear" size="19.0" />
                      </font>
