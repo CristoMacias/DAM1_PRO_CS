@@ -1,0 +1,8 @@
+@font-face{
+    font-family: "Power Green";
+    src:url("powerg.ttf");
+}
+
+.root{
+    -fx-font-family: "Power Green";
+}

@@ -39,6 +39,7 @@ public class Controlador {
             fxmlLoader.setController(controlador);
             Parent raiz = fxmlLoader.load();
             vista=new Scene(raiz);
+            vista.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
         }catch(IOException e){
             e.printStackTrace();
             System.out.println("ERROR FATAL. No se encuentra la vista "+nombre+".");
