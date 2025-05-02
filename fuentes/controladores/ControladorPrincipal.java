@@ -15,6 +15,7 @@ public class ControladorPrincipal extends Controlador{
 	private ControladorLoginJugador controladorLogin;
 	private ControladorMenu controladorMenu;
 	private ControladorEscenario controladorEscenario;
+	private ControladorMedia controladorMedia;
 	@FXML private Label labelNombreJugador;
 	@FXML private Label labelTotalChocado;
 	/**
@@ -23,6 +24,8 @@ public class ControladorPrincipal extends Controlador{
 	 */ 
 	public ControladorPrincipal(Stage stage){
 		super(stage);
+		controladorMedia=new ControladorMedia();//Instanciamos el controladorMedia para manejar todo lo relacionado con el media.
+		controladorMedia.reproducirBienvenida();
 		new ControladorBienvenida(ventana,this);//Instanciamos el ControladorBienvenida para que se incie la vista
 	}
 	/**
@@ -51,6 +54,8 @@ public class ControladorPrincipal extends Controlador{
 	 */
 	public void cargarEscenario(String dificultad){
 		Escenario escenario = new Escenario(dificultad);
+		controladorMedia.pararIntroduccion();
+		controladorMedia.reproducirLaberinto();
 		controladorEscenario = new ControladorEscenario(ventana, this,escenario);
 	}
 	/**
@@ -59,11 +64,15 @@ public class ControladorPrincipal extends Controlador{
 	public void cargarFin(){
 		Scene vistaFinal=cargarVista(this,"vistaFinJuego");
 		ventana.setTitle("FIN"); // Cambiar el titulo de la ventana
+		controladorMedia.pararLaberinto();
+		controladorMedia.reproducirFinal();
 		cambiarVista(vistaFinal);//Cambiamos la vista
 		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
 		labelTotalChocado.setText("TOTAL VECES CHOCADO: "+jugador.getTotalChocado());
 		vistaFinal.setOnKeyPressed(event->{
 			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
+			controladorMedia.pararFinal();
+			controladorMedia.reproducirIntroduccion();
 			new ControladorMenu(ventana,this);
 		});
 	}
@@ -74,9 +83,13 @@ public class ControladorPrincipal extends Controlador{
 	public Jugador getJugador(){
 		return this.jugador;
 	}
-
+	/**
+	 * Método para cargar la vista introduccion del videojuego
+	 */ 
 	public void cargarIntroduccion(){
 		Scene vistaIntroduccion=cargarVista(this,"vistaIntroduccion");
+		controladorMedia.pararBienvenida();
+		controladorMedia.reproducirIntroduccion();
 		cambiarVista(vistaIntroduccion);
 		vistaIntroduccion.setOnKeyPressed(event->{
 			ventana.close();

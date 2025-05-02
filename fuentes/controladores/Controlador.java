@@ -69,5 +69,13 @@ public class Controlador {
     public void salirJuego(){
         ventana.close();
     }
+
+    public void reproducirMusica(){
+
+    }
+
+    public void pararMusica(){
+        
+    }
 }
 
