@@ -8,29 +8,29 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="365.0" prefWidth="600.0" style="-fx-background-color: #323232; -fx-spacing: 20px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label text="LABYRINTHUS" textFill="#ffea00">
+      <Label style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="LABYRINTHUS" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="48.0" />
          </font>
       </Label>
-      <Label text="Elige dificultad..." textFill="#ffea00">
+      <Label style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="Elige dificultad..." textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="botonFacil" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" text="Facil">
+      <Button fx:id="botonFacil" mnemonicParsing="false" prefHeight="39.0" prefWidth="138.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="Facil">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="botonMedio" mnemonicParsing="false" prefHeight="39.0" prefWidth="139.0" text="Medio">
+      <Button fx:id="botonMedio" mnemonicParsing="false" prefHeight="39.0" prefWidth="139.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="Medio">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="botonDificil" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" text="Dificil">
+      <Button fx:id="botonDificil" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="Dificil">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="botonSalir" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" text="Salir">
+      <Button fx:id="botonSalir" mnemonicParsing="false" prefHeight="36.0" prefWidth="139.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2);" text="Salir">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

@@ -14,7 +14,7 @@
             <Font name="Power Green" size="64.0" />
          </font>
       </Label>
-      <Label fx:id="labelNombreJugador" alignment="CENTER" prefHeight="24.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" textFill="#ffe500">
+      <Label fx:id="labelNombreJugador" alignment="CENTER" prefHeight="24.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="31.0" />
          </font>
@@ -28,12 +28,12 @@
          <children>
             <ImageView fitHeight="81.0" fitWidth="465.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../compilados/brilloFondo.gif" />
+                  <Image url="@../brilloFondo.gif" />
                </image>
             </ImageView>
             <ImageView fitHeight="73.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../compilados/jugador.gif" />
+                  <Image url="@../jugador.gif" />
                </image>
             </ImageView>
          </children>
@@ -43,7 +43,7 @@
             <Font name="Power Green" size="13.0" />
          </font>
       </Label>
-      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="27.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menu)" textFill="#ffcc00">
+      <Label alignment="BOTTOM_CENTER" contentDisplay="BOTTOM" prefHeight="27.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para volver al Menú)" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="12.0" />
          </font>
