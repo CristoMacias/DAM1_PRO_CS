@@ -313,6 +313,7 @@ public class ControladorEscenario extends Controlador{
 			}
 		}
 	}
+
 	/**
 	 * Método para colocar la llave en la matriz en una posición fija según el escenario
 	 */ 
@@ -324,9 +325,9 @@ public class ControladorEscenario extends Controlador{
 			columnaLlave=25;
 			break;
 		case "medio":
-			filaLlave=5;
-			columnaLlave=36;
-			matriz[5][36]='K';
+			filaLlave=1;
+			columnaLlave=16;
+			matriz[1][16]='K';
 			break;
 		case "dificil":
 			filaLlave=7;
