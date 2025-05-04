@@ -15,6 +15,7 @@ public class ControladorMedia{
 	private MediaPlayer mpIntroduccion;
 	private MediaPlayer mpLaberinto;
 	private MediaPlayer mpFinal;
+	private MediaPlayer mpMoneda;
 	/**
 	 * Constructor de ControladorMedia.
 	 */
@@ -29,7 +30,7 @@ public class ControladorMedia{
 		mpIntroduccion=cargarMediaPlayer("compilados/sonidos/introduccion.mp3");
 		mpLaberinto=cargarMediaPlayer("compilados/sonidos/laberinto.mp3");
 		mpFinal=cargarMediaPlayer("compilados/sonidos/sonidoFinal.mp3");
-
+		
 	}
 	/**
 	 * Método para instanciar la Media
@@ -109,6 +110,25 @@ public class ControladorMedia{
 	 */ 
 	public void pararFinal(){
 		parar(mpFinal);
+	}
+	/**
+	 * Método que instancia y reproduce el sonido de la moneda 
+	 */ 
+	public void reproducirMoneda(){
+		MediaPlayer mpMoneda=cargarMediaPlayer("compilados/sonidos/moneda.mp3");
+		mpMoneda.play();
+	}
+	/**
+	 * Método que instancia y reproduce el sonido de las llaves
+	 */ 
+	public void reproducirLlaves(){
+		MediaPlayer mpLlaves=cargarMediaPlayer("compilados/sonidos/llaves.mp3");
+		mpLlaves.play();
+	}
+
+	public void reproducirChocarse(){
+		MediaPlayer mpChocarse=cargarMediaPlayer("compilados/sonidos/chocarse.mp3");
+		mpChocarse.play();
 	}
 
 }

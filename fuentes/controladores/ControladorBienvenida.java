@@ -28,8 +28,6 @@ public class ControladorBienvenida extends Controlador{
 		vistaBienvenida.setOnKeyPressed(event->{
 			ventana.close();//Cerramos la ventana
 			controladorPp.cargarIntroduccion();
-			//controladorPp.cargarLogin();//Llamada al método cargarLogin() para comnezar con la parte del login
 		});
-
 	}
 }
