@@ -38,7 +38,17 @@ public class ControladorEscenario extends Controlador{
 	private Integer filaJugador=1;
 	private Integer columnaJugador=1;
 	@FXML private Label labelTitulo;
-
+	private Integer filaMoneda;
+	private Integer columnaMoneda;
+	private ImageView ivMoneda;
+	private Integer monedasColocadas=3;
+	private Integer filaLlave;
+	private Integer columnaLlave;
+	private ImageView ivLlave;
+	private	@FXML Label labelMonedas;
+	private @FXML Label labelLlave;
+	private	@FXML Label labelChocado;
+	private	@FXML Label labelPuntos;
 	/**
 	 * Controlador de Escenario
 	 * @param stage Lo recibe de la herencia del Controlador
@@ -61,6 +71,8 @@ public class ControladorEscenario extends Controlador{
 		HBox raizVista1 = (HBox) vista1.getRoot();
 		VBox raizVista2 = (VBox) vista2.getRoot();
 		raizVista1.getChildren().add(raizVista2);
+		ivMoneda=new ImageView(new Image(this.getClass().getResourceAsStream("/moneda.gif")));
+		ivLlave=new ImageView(new Image(this.getClass().getResourceAsStream("/llave2.gif")));
 		//Iniciamos la vista principal
 		
 		crearGrid(filas,cols);
@@ -145,6 +157,8 @@ public class ControladorEscenario extends Controlador{
 		ivJugador.setFitHeight(32);//Ajustamos largo
 		ivJugador.setPreserveRatio(true);//Nos aseguremos que no se deforme
 		colocarJugador();
+		colocarMonedaMatriz();
+		colocarMonedaEscenario();
 		ventana.setTitle("Laberinto"); // Cambiamos el titulo
 		cambiarVista(vista1); //Cambiamos a la ista 1
 		labelTitulo.setText("NIVEL "+escenario.getNombre().toUpperCase());
@@ -201,15 +215,23 @@ public class ControladorEscenario extends Controlador{
 			return;//Terminamos la funcion
 		}
 		if(fila<1 || fila>filas-2 ||columna>cols-2 ||columna<1){//Comprobamos que no intente pasar las paredes
-			labelOuch.setText(" ¡OUCH! Todavía no puedes traspasar paredes...");//Mensaje si intenta pasar las paredes
+			controladorPp.getControladorMedia().reproducirChocarse();
 			controladorPp.getJugador().chocarse();
+			labelOuch.setText(" ¡OUCH! Todavía no puedes traspasar paredes...");//Mensaje si intenta pasar las paredes
+			actualizarEstadistica();
 			return;//Terminamos la funcion
 		}
 		if(matriz[fila][columna]=='X'){ //Para controlar los obstáculos 
-			labelOuch.setText(" ¡OUCH! Eso ha dolido...");//Mensaje si se choca contra un obstaculo
 			controladorPp.getJugador().chocarse();
+			controladorPp.getControladorMedia().reproducirChocarse();
+			labelOuch.setText(" ¡OUCH! Eso ha dolido...");//Mensaje si se choca contra un obstaculo
+			actualizarEstadistica();
 			return;//Terminamos la funcion
 		}
+		comprobarMoneda(fila,columna);
+		actualizarEstadistica();
+		comprobarLlave(fila,columna);
+		actualizarEstadistica();
 		stackPanes[fila][columna].getChildren().add(ivJugador); //Colocamos al jugador en la fila y columna
 		filaJugador=fila; //Asignamos la fila actual en la que se encuentra el jugador
 		columnaJugador=columna; //Asignamo la columna actual en la que se encuentre el jugador
@@ -221,6 +243,7 @@ public class ControladorEscenario extends Controlador{
 	private void ganarJuego(){
 		if(filaJugador==filas-2 && columnaJugador==cols-1){//Si la fila del jugador y colummna del jugador es la del final
 			ventana.close();//Cerramos la ventana anterior
+			controladorPp.getJugador().comprobarPuntuacion();
 			controladorPp.cargarFin();
 		}
 	}
@@ -244,7 +267,102 @@ public class ControladorEscenario extends Controlador{
 				}
 			}
 		}
-		
 	}
+	/**
+	 * Método para colcocar la moneda en la matriz de manera aleatoria donde hay espacio.
+	 */ 
+	private void colocarMonedaMatriz(){
+		for(int i=0;i<matriz.length;i++){
+			for(int j=0;j<matriz[i].length;j++){
+				int fila=(int)(Math.random()*8)+1;
+				int columna=(int)(Math.random()*38)+1;
+				if(matriz[fila][columna]==' '){
+					matriz[fila][columna]='C';
+					filaMoneda=fila;
+					columnaMoneda=columna;
+					monedasColocadas--;
+					return;
+				}	
+			}
+		}
+	}
+	/**
+	 * Método para colocar la ImageView dela moneda en el escenario
+	 */ 
+	private void colocarMonedaEscenario(){
+		ivMoneda.setFitWidth(20);//Ajustamos ancho
+		ivMoneda.setFitHeight(20);//Ajustamos largo
+		ivMoneda.setPreserveRatio(true);
+		stackPanes[filaMoneda][columnaMoneda].getChildren().add(ivMoneda);
+	}
+	/**
+	 * Método para comprobar si el jugador se encuentra en la posición de la moneda para cogerla, adenás colocar la llave cuando termina de recoger todas
+	 */ 
+	private void comprobarMoneda(Integer fila,Integer columna){
+		if(matriz[fila][columna]=='C'){
+			controladorPp.getControladorMedia().reproducirMoneda();
+			stackPanes[fila][columna].getChildren().remove(ivMoneda);
+			controladorPp.getJugador().recogerMoneda(1);
+			matriz[fila][columna]=' ';
+			if(monedasColocadas!=0){
+				colocarMonedaMatriz();
+				colocarMonedaEscenario();
+			}if(controladorPp.getJugador().getTotalMonedas()==3){
+				colocarLlaveMatriz();
+				colocarLlaveEscenario();
+			}
+		}
+	}
+	/**
+	 * Método para colocar la llave en la matriz en una posición fija según el escenario
+	 */ 
+	private void colocarLlaveMatriz(){
+		switch(escenario.getNombre()){
+		case "facil":
+			matriz[1][25]='K';
+			filaLlave=1;
+			columnaLlave=25;
+			break;
+		case "medio":
+			filaLlave=5;
+			columnaLlave=36;
+			matriz[5][36]='K';
+			break;
+		case "dificil":
+			filaLlave=7;
+			columnaLlave=2;
+			matriz[7][2]='K';
+			break;
+		}
+	}
+	/**
+	 * Método para colocar la ImageView de la llave en el escenario
+	 */ 
+	private void colocarLlaveEscenario(){
+		
+		ivLlave.setFitWidth(28);
+		ivLlave.setFitHeight(28);
+		ivLlave.setPreserveRatio(true);
+		stackPanes[filaLlave][columnaLlave].getChildren().add(ivLlave);
+	}
+	/**
+	 *Método para comprobar si el jugador se coloca en la posición de la llave para recogerla
+	 */
+	private void comprobarLlave(Integer fila,Integer columna){
+		if(matriz[fila][columna]=='K'){
+			controladorPp.getControladorMedia().reproducirLlaves();
+			controladorPp.getJugador().setTieneLlave(true);
+			stackPanes[fila][columna].getChildren().remove(ivLlave);
+		}
+	}
+	/**
+	 * Método para actualizar las estadísticas en la vista2
+	 */ 
+	private void actualizarEstadistica(){
 
+		labelMonedas.setText("MONEDAS: "+controladorPp.getJugador().getTotalMonedas());
+		labelLlave.setText("LLAVE RECOGIDA: "+controladorPp.getJugador().comprobarLlave());
+		labelChocado.setText("VECES CHOCADO: "+controladorPp.getJugador().getTotalChocado());
+		labelPuntos.setText("PUNTOS: "+controladorPp.getJugador().getTotalPuntuacion());
+	}
 }

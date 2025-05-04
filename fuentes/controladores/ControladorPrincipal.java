@@ -18,6 +18,9 @@ public class ControladorPrincipal extends Controlador{
 	private ControladorMedia controladorMedia;
 	@FXML private Label labelNombreJugador;
 	@FXML private Label labelTotalChocado;
+	@FXML private Label labelMonedas;
+	@FXML private Label labelLlave;
+	@FXML private Label labelPuntuacion;
 	/**
 	 * Constrcutor para ControladorPrincipal
 	 * @param stage Recibe el stage de ventana
@@ -69,8 +72,14 @@ public class ControladorPrincipal extends Controlador{
 		cambiarVista(vistaFinal);//Cambiamos la vista
 		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
 		labelTotalChocado.setText("TOTAL VECES CHOCADO: "+jugador.getTotalChocado());
+		labelMonedas.setText("TOTAL MONEDAS: "+jugador.getTotalMonedas());
+		labelLlave.setText("TIENE LLAVE: "+jugador.comprobarLlave());
+		labelPuntuacion.setText(String.valueOf(jugador.getTotalPuntuacion()));
 		vistaFinal.setOnKeyPressed(event->{
 			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
+			jugador.setTotalMonedas(0);
+			jugador.setTieneLlave(false);
+			jugador.setTotalPuntuacion(0);
 			controladorMedia.pararFinal();
 			controladorMedia.reproducirIntroduccion();
 			new ControladorMenu(ventana,this);
@@ -95,5 +104,9 @@ public class ControladorPrincipal extends Controlador{
 			ventana.close();
 			cargarLogin();
 		});
+	}
+
+	public ControladorMedia getControladorMedia(){
+		return this.controladorMedia;
 	}
 }

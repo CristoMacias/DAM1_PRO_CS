@@ -1,14 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #323232; -fx-spacing: 10px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label prefHeight="63.0" prefWidth="155.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="ESTADÍSTICAS" textFill="#ffcc00">
+      <Label alignment="CENTER" prefHeight="63.0" prefWidth="200.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00;" text="ESTADÍSTICAS" textFill="#ffcc00">
          <font>
             <Font name="Power Green" size="28.0" />
          </font></Label>
+      <VBox prefHeight="324.0" prefWidth="200.0" style="-fx-padding: 10px; -fx-border-color: #ffcc00;">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);">
+               <children>
+                  <StackPane opacity="0.67" prefHeight="75.0" prefWidth="97.0" style="-fx-background-color: #802f2f;">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../moneda.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="labelMonedas" prefHeight="76.0" prefWidth="178.0" style="-fx-label-padding: 10px;" text="MONEDAS:" textAlignment="CENTER" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);">
+               <children>
+                  <StackPane opacity="0.72" prefHeight="75.0" prefWidth="97.0" style="-fx-background-color: #802f2f;">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../llave2.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="labelLlave" prefHeight="68.0" prefWidth="178.0" style="-fx-label-padding: 10px;" text="LLAVE RECOGIDA:" textAlignment="CENTER" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);">
+               <children>
+                  <StackPane opacity="0.73" prefHeight="75.0" prefWidth="97.0" style="-fx-background-color: #802f2f;">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../jugador.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="labelChocado" prefHeight="71.0" prefWidth="178.0" style="-fx-label-padding: 10px;" text="VECES CHOCADO: " textAlignment="CENTER" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="labelPuntos" prefHeight="75.0" prefWidth="178.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="PUNTOS: " textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </VBox>
