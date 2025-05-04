@@ -70,6 +70,24 @@
                   </Label>
                </children>
             </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.5,4,4);">
+               <children>
+                  <StackPane opacity="0.73" prefHeight="75.0" prefWidth="97.0" style="-fx-background-color: #802f2f;">
+                     <children>
+                        <ImageView fitHeight="32.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../reloj.gif" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Label fx:id="labelTiempo" prefHeight="71.0" prefWidth="178.0" style="-fx-label-padding: 10px;" text="TIEMPO: " textAlignment="CENTER" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <Label fx:id="labelPuntos" prefHeight="75.0" prefWidth="178.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="PUNTOS: " textFill="#ffcc00">
