@@ -71,7 +71,10 @@ public class JDBC{
 
 	        resultado.next(); // Necesario para acceder al resultado del COUNT
 	        int totalFilas = resultado.getInt(1);
-	        if (totalFilas != 0) {
+	        if (totalFilas == 1) {
+	        		System.out.println("Los datos ya están introducidos");
+		         
+		    }else{
 	        	try (PreparedStatement datos = conexion.prepareStatement(sql)) {
 		            for (int i = 0; i < NUMEROJUGADORES; i++) {
 		                datos.setInt(1, i + 1);
@@ -81,7 +84,7 @@ public class JDBC{
 		                datos.setInt(5, 10);
 		                datos.setInt(6, 10);
 		                datos.executeUpdate();
-		            }
+	        		}
 	        	}
 	        } 
 	    } catch (SQLException e) {
