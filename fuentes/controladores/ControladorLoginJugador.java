@@ -139,7 +139,6 @@ public class ControladorLoginJugador extends Controlador{
 	 */ 
 	private void terminarLogin(){
 		controladorPp.cargarJugador(nombreJugador,emailJugador); //Cargamos los datos del jugador
-		ventana.close(); //Cerramos la ventana
 		controladorPp.cargarMenu();//Llamada al metodo cargarMenu del controladorPp para instanciar el controlador del menu y cargar su vista
 	}
 }

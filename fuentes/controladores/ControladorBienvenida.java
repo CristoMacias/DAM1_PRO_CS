@@ -18,6 +18,7 @@ public class ControladorBienvenida extends Controlador{
 		this.controladorPp=controladorPp;//Instanciamos el controlador principal
 		this.vistaBienvenida=cargarVista(this,"vistaBienvenida");//Cargamos la vista de bienvenida
 		cambiarVista(vistaBienvenida);//Llamada al metodo cambiarVista para mostrar la vistaBienvenida
+		ventana.show();
 		ventana.setTitle("Bienvenida a LABYRINTHUS");//Cambiamos el titulo de la ventana/stage
 		capturarEventos();//Llamada a caputar el evento para cambiar de ventana
 	}
@@ -26,7 +27,6 @@ public class ControladorBienvenida extends Controlador{
 	 */ 
 	public void capturarEventos(){
 		vistaBienvenida.setOnKeyPressed(event->{
-			ventana.close();//Cerramos la ventana
 			controladorPp.cargarIntroduccion();
 		});
 	}

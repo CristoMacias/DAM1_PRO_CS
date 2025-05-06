@@ -8,7 +8,9 @@
  import javafx.fxml.FXMLLoader;
  import javafx.fxml.FXML;
  import javafx.stage.Stage;
-
+ import javafx.scene.image.Image;
+ import javafx.scene.ImageCursor;
+ import javafx.scene.Cursor;
 /**
  * Clase Controlador
  * @author Cristo Macias, Sandra Moñino
@@ -20,6 +22,7 @@ public class Controlador {
     private static final String PATH_VISTAS = "/vistas/";
     protected Stage ventana;
     protected ControladorPrincipal controladorPp;
+
     /**
      * Constructor para el controlador
      * @param stage Recibe el stage de ventana
@@ -40,6 +43,8 @@ public class Controlador {
             Parent raiz = fxmlLoader.load();
             vista=new Scene(raiz);
             vista.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+            Image imagenCursor=new Image("/bat.gif");
+            vista.setCursor(new ImageCursor(imagenCursor));
         }catch(IOException e){
             e.printStackTrace();
             System.out.println("ERROR FATAL. No se encuentra la vista "+nombre+".");
@@ -53,8 +58,19 @@ public class Controlador {
      * @param vista Recibe la vista
      */ 
     protected void cambiarVista(Scene vista){
+        //Recogemos las medidas de la ventana
+        double ancho=ventana.getWidth();
+        double alto=ventana.getHeight();
+        double ventanaX=ventana.getX();
+        double ventanaY=ventana.getY();
+        //Modificamos las medidas de la ventana para la siguiente vista
+        ventana.setWidth(ancho);
+        ventana.setHeight(alto);
+        ventana.setX(ventanaX);
+        ventana.setY(ventanaY);
         ventana.setScene(vista);
-        ventana.show();
+        ventana.setMaximized(true);//Para mantenerlo maximizado
+        //ventana.show();
     }
     /**
      * Getter de ventana
@@ -70,12 +86,5 @@ public class Controlador {
         ventana.close();
     }
 
-    public void reproducirMusica(){
-
-    }
-
-    public void pararMusica(){
-        
-    }
 }
 
