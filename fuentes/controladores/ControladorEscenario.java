@@ -252,7 +252,6 @@ public class ControladorEscenario extends Controlador{
 			if(lineaTiempo != null){
 				lineaTiempo.stop();
 			}
-			ventana.close();//Cerramos la ventana anterior
 			controladorPp.getJugador().comprobarPuntuacion();
 			controladorPp.cargarFin();
 		}
@@ -350,7 +349,6 @@ public class ControladorEscenario extends Controlador{
 	 * Método para colocar la ImageView de la llave en el escenario
 	 */ 
 	private void colocarLlaveEscenario(){
-		
 		ivLlave.setFitWidth(28);
 		ivLlave.setFitHeight(28);
 		ivLlave.setPreserveRatio(true);
@@ -372,7 +370,7 @@ public class ControladorEscenario extends Controlador{
 	private void iniciarContador(){
 		lineaTiempo = new Timeline(new KeyFrame(Duration.seconds(1), e -> { //ejecuta el bloque de codigo cada 1 segundo
 			segundosTranscurridos++;	//Va sumando 1 cada segundo
-			labelTiempo.setText("TIEMPO: " + formatoTiempo(segundosTranscurridos)); //Muestra los segundos actuales
+			labelTiempo.setText(formatoTiempo(segundosTranscurridos)); //Muestra los segundos actuales
 		}));
 		lineaTiempo.setCycleCount(Timeline.INDEFINITE); //Esto hace que nunca se pare el contador, hasta que nosotros lo ordenemos
 		lineaTiempo.play(); //Inicia el temporizador
@@ -390,15 +388,14 @@ public class ControladorEscenario extends Controlador{
 	 * Método para actualizar las estadísticas en la vista2
 	 */ 
 	private void actualizarEstadistica(){
-
-		labelMonedas.setText("MONEDAS: "+controladorPp.getJugador().getTotalMonedas());
-		labelLlave.setText("LLAVE RECOGIDA: "+controladorPp.getJugador().comprobarLlave());
-		labelChocado.setText("VECES CHOCADO: "+controladorPp.getJugador().getTotalChocado());
-		labelPuntos.setText("PUNTOS: "+controladorPp.getJugador().getTotalPuntuacion());
-		
+		labelMonedas.setText(String.valueOf(controladorPp.getJugador().getTotalMonedas()));
+		labelLlave.setText(controladorPp.getJugador().comprobarLlave());
+		labelChocado.setText(String.valueOf(controladorPp.getJugador().getTotalChocado()));
+		labelPuntos.setText(String.valueOf(controladorPp.getJugador().getTotalPuntuacion()));
 	}
 
 	public int getTotalSegundos(){
 		return segundosTranscurridos;
 	}
+
 }

@@ -80,10 +80,10 @@ public class ControladorPrincipal extends Controlador{
 		MejoresJugadores nuevoJugador = new MejoresJugadores(0, jugador.getNombre(), jugador.getTotalPuntuacion(), controladorEscenario.getTotalSegundos(), jugador.getTotalMonedas(), jugador.getTotalChocado());
 		jdbc.modificarRanking(nuevoJugador);
 		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
-		labelTotalChocado.setText("TOTAL VECES CHOCADO: "+jugador.getTotalChocado());
-		labelMonedas.setText("TOTAL MONEDAS: "+jugador.getTotalMonedas());
-		labelLlave.setText("TIENE LLAVE: "+jugador.comprobarLlave());
-		labelTiempo.setText("TOTAL SEGUNDOS: "+controladorEscenario.getTotalSegundos());
+		labelTotalChocado.setText(String.valueOf(jugador.getTotalChocado()));
+		labelMonedas.setText(String.valueOf(jugador.getTotalMonedas()));
+		labelLlave.setText(jugador.comprobarLlave());
+		labelTiempo.setText(String.valueOf(controladorEscenario.getTotalSegundos()));
 		labelPuntuacion.setText(String.valueOf(jugador.getTotalPuntuacion()));
 		vistaFinal.setOnKeyPressed(event->{
 			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
@@ -92,7 +92,7 @@ public class ControladorPrincipal extends Controlador{
 			jugador.setTotalPuntuacion(0);
 			controladorMedia.pararFinal();
 			controladorMedia.reproducirIntroduccion();
-			new ControladorMenu(ventana,this);
+			cargarTopJugadores();
 		});
 	}
 	
@@ -111,12 +111,23 @@ public class ControladorPrincipal extends Controlador{
 		controladorMedia.reproducirIntroduccion();
 		cambiarVista(vistaIntroduccion);
 		vistaIntroduccion.setOnKeyPressed(event->{
-			ventana.close();
 			cargarLogin();
 		});
 	}
 
 	public ControladorMedia getControladorMedia(){
 		return this.controladorMedia;
+	}
+	/**
+	 * Método para cargar la vista del Top 10 Mejores Jugadores
+	 */ 
+	public void cargarTopJugadores(){
+		Scene vistaTopJugadores = cargarVista(this,"vistaTopJugadores");
+		controladorMedia.pararFinal();
+		controladorMedia.reproducirIntroduccion();
+		cambiarVista(vistaTopJugadores);
+		vistaTopJugadores.setOnKeyPressed(event->{
+			cargarMenu();//Cuando presione, vuelve a la vista del Menús
+		});
 	}
 }

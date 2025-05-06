@@ -46,7 +46,6 @@ public class ControladorMenu extends Controlador{
 	 * @param dificultad Dificultad elegida por el usuario que a su vez es el nombre del txt
 	 */
 	private void cargarEscenario(String dificultad){
-		ventana.close(); //Cerramos la ventana
 		controladorPp.cargarEscenario(dificultad);
 	}
 
