@@ -62,14 +62,14 @@
                         <Font name="Power Green" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelMonedas1" alignment="CENTER" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="TIEMPO: " textFill="#ffcc00">
+                  <Label fx:id="labelTiempo" alignment="CENTER" contentDisplay="BOTTOM" prefHeight="40.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="TIEMPO: " textFill="#ffcc00">
                      <font>
                         <Font name="Power Green" size="20.0" />
                      </font>
                   </Label>
                   <VBox alignment="CENTER" prefHeight="143.0" prefWidth="804.0">
                      <children>
-                        <Label fx:id="labelTiempo" alignment="TOP_CENTER" contentDisplay="BOTTOM" prefHeight="38.0" prefWidth="301.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="PUNTUACIÓN TOTAL " textFill="#ffcc00">
+                        <Label fx:id="" alignment="TOP_CENTER" contentDisplay="BOTTOM" prefHeight="38.0" prefWidth="301.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="PUNTUACIÓN TOTAL " textFill="#ffcc00">
                            <font>
                               <Font name="Power Green" size="37.0" />
                            </font>

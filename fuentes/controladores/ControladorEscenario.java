@@ -15,6 +15,9 @@ import javafx.scene.image.ImageView;
 import javafx.geometry.Rectangle2D;
 import javafx.fxml.FXML;
 import modelos.Escenario;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 /**
  * Clase ControladorEscenario
  * Hereda de Controlador. Se encargará de reconstruir el escenario a través del txt que lo representa, recibiéndolo del modelo creado en la versión anterior.
@@ -49,6 +52,9 @@ public class ControladorEscenario extends Controlador{
 	private @FXML Label labelLlave;
 	private	@FXML Label labelChocado;
 	private	@FXML Label labelPuntos;
+	private @FXML Label labelTiempo;
+	private Timeline lineaTiempo; //Ejecuta algo cada X tiempo
+	private int segundosTranscurridos = 0; //Contador de segundos transcurridos
 	/**
 	 * Controlador de Escenario
 	 * @param stage Lo recibe de la herencia del Controlador
@@ -163,7 +169,8 @@ public class ControladorEscenario extends Controlador{
 		cambiarVista(vista1); //Cambiamos a la ista 1
 		labelTitulo.setText("NIVEL "+escenario.getNombre().toUpperCase());
 		captuarMovimiento();
-	}
+		iniciarContador();
+		}
 
 	/**
 	 * Método para captuar el evento para capturar por teclado los movimientos de WASD
@@ -242,6 +249,9 @@ public class ControladorEscenario extends Controlador{
 	 */ 
 	private void ganarJuego(){
 		if(filaJugador==filas-2 && columnaJugador==cols-1){//Si la fila del jugador y colummna del jugador es la del final
+			if(lineaTiempo != null){
+				lineaTiempo.stop();
+			}
 			ventana.close();//Cerramos la ventana anterior
 			controladorPp.getJugador().comprobarPuntuacion();
 			controladorPp.cargarFin();
@@ -357,6 +367,26 @@ public class ControladorEscenario extends Controlador{
 		}
 	}
 	/**
+	 * Método encargado de iniciar el contador
+	 */
+	private void iniciarContador(){
+		lineaTiempo = new Timeline(new KeyFrame(Duration.seconds(1), e -> { //ejecuta el bloque de codigo cada 1 segundo
+			segundosTranscurridos++;	//Va sumando 1 cada segundo
+			labelTiempo.setText("TIEMPO: " + formatoTiempo(segundosTranscurridos)); //Muestra los segundos actuales
+		}));
+		lineaTiempo.setCycleCount(Timeline.INDEFINITE); //Esto hace que nunca se pare el contador, hasta que nosotros lo ordenemos
+		lineaTiempo.play(); //Inicia el temporizador
+	}
+	/**
+	 * Método encargado de formatear el tiempo en 00:00, para que no sea 179 segundos por ejemplo.
+	 */
+	private String formatoTiempo(int totalSegundos){
+		int minutos = totalSegundos / 60;
+		int segundos = totalSegundos % 60;
+		return String.format("%02d:%02d", minutos, segundos);
+	}
+
+	/**
 	 * Método para actualizar las estadísticas en la vista2
 	 */ 
 	private void actualizarEstadistica(){
@@ -365,5 +395,10 @@ public class ControladorEscenario extends Controlador{
 		labelLlave.setText("LLAVE RECOGIDA: "+controladorPp.getJugador().comprobarLlave());
 		labelChocado.setText("VECES CHOCADO: "+controladorPp.getJugador().getTotalChocado());
 		labelPuntos.setText("PUNTOS: "+controladorPp.getJugador().getTotalPuntuacion());
+		
+	}
+
+	public int getTotalSegundos(){
+		return segundosTranscurridos;
 	}
 }

@@ -4,8 +4,10 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import modelos.Jugador;
 import modelos.Escenario;
+import modelos.MejoresJugadores;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
+import jdbc.JDBC;
 /**
  * Clase de Controlador Principal. Es el que se encargará de la lógica general del juego
  * @author Sandra Moñino, Cristo Macias
@@ -16,11 +18,13 @@ public class ControladorPrincipal extends Controlador{
 	private ControladorMenu controladorMenu;
 	private ControladorEscenario controladorEscenario;
 	private ControladorMedia controladorMedia;
+	private JDBC jdbc;
 	@FXML private Label labelNombreJugador;
 	@FXML private Label labelTotalChocado;
 	@FXML private Label labelMonedas;
 	@FXML private Label labelLlave;
 	@FXML private Label labelPuntuacion;
+	@FXML private Label labelTiempo;
 	/**
 	 * Constrcutor para ControladorPrincipal
 	 * @param stage Recibe el stage de ventana
@@ -35,6 +39,9 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para instanciar y mostrar las vistas para el login además de la lógica.
 	 */ 
 	public void cargarLogin(){
+		jdbc = new JDBC();
+		jdbc.crearConexion();
+		jdbc.introducirDatosPredeterminados();
 		new ControladorLoginJugador(ventana,this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
 	}
 	/**
@@ -70,10 +77,13 @@ public class ControladorPrincipal extends Controlador{
 		controladorMedia.pararLaberinto();
 		controladorMedia.reproducirFinal();
 		cambiarVista(vistaFinal);//Cambiamos la vista
+		MejoresJugadores nuevoJugador = new MejoresJugadores(0, jugador.getNombre(), jugador.getTotalPuntuacion(), controladorEscenario.getTotalSegundos(), jugador.getTotalMonedas(), jugador.getTotalChocado());
+		jdbc.modificarRanking(nuevoJugador);
 		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
 		labelTotalChocado.setText("TOTAL VECES CHOCADO: "+jugador.getTotalChocado());
 		labelMonedas.setText("TOTAL MONEDAS: "+jugador.getTotalMonedas());
 		labelLlave.setText("TIENE LLAVE: "+jugador.comprobarLlave());
+		labelTiempo.setText("TOTAL SEGUNDOS: "+controladorEscenario.getTotalSegundos());
 		labelPuntuacion.setText(String.valueOf(jugador.getTotalPuntuacion()));
 		vistaFinal.setOnKeyPressed(event->{
 			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
