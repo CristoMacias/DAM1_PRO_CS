@@ -17,6 +17,7 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	private Integer totalMonedas;
 	private Boolean tieneLlave;
 	private Integer totalPuntuacion;
+	private int totalSegundos;
 	/**
 	 * Constructor para inicializar los atributos del personaje e instanciarlo
 	 * @param nombre Recibe el nombre del jugador
@@ -29,6 +30,7 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 		this.totalMonedas=0;
 		this.tieneLlave=false;
 		this.totalPuntuacion=0;
+		this.totalSegundos=0;
 	}
 	//GETTER Y SETTER
 	/**
@@ -114,6 +116,13 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	public void setTotalPuntuacion(Integer puntuacion){
 		this.totalPuntuacion=puntuacion;
 	}
+
+	public int getTotalSegundos(){
+		return this.totalSegundos;
+	}
+	public void setTotalSegundos(int totalSegundos){
+		this.totalSegundos=totalSegundos;
+	}
 	/**
 	 * Método del jugador para chocarse
 	 */ 
@@ -135,11 +144,6 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	public void sumarPuntuacion(Integer puntos){
 		this.totalPuntuacion+=puntos;
 	}
-	public void restarPuntuacion(Integer puntos){
-		this.totalPuntuacion-=puntos;
-		if(this.totalPuntuacion<0)
-			setTotalPuntuacion(0);
-	}
 	/**
 	 * Método que comprueba si tiene la llave. Devuelve un string con si o no
 	 * @return Devuelve un string
@@ -152,14 +156,40 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 		}		
 	}
 	/**
-	 * Método para comprobar el totalChocados y dar puntos
+	 * Método para comprobar las puntuciones
 	 */ 
-	public void comprobarPuntuacion(){
-		if(this.tieneLlave)
-			sumarPuntuacion(100);
-		if(this.totalChocado==0)
-			sumarPuntuacion(100);
-		else
-			restarPuntuacion(this.totalChocado*5);
+	public void calcularPuntuacion(){
+		this.totalPuntuacion=puntuarMonedas()+puntuarLlave()+puntuarChocado();
 	}
+	/**
+	 * Calcula el total de puntos por moneda
+	 * @return Devuelve los puntos
+	 */ 
+	public int puntuarMonedas(){
+		return this.totalMonedas*25;
+	}
+	/**
+	 * Método para calcular los puntos si tiene la llave o no
+	 * @return Devuelve los puntos
+	 */ 
+	public int puntuarLlave(){
+		if(this.tieneLlave)
+			return 100;
+		else
+			return 0;
+	}
+	/**
+	 * Método que comprueba los puntos de totalChocado. 
+	 * @return Devuelve 100 para totalChocado 0, y - totalChocado*5
+	 */ 
+	public int puntuarChocado(){
+		if(this.totalChocado==0)
+			return 100;
+		else
+			return -(this.totalChocado*5);
+	}
+	public void comprobarPuntos(){
+		if(this.totalPuntuacion<0)
+			this.totalPuntuacion= 0;
+	}	
 }

@@ -70,7 +70,7 @@
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="39.0" prefWidth="180.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
+                                                <Label fx:id="labelPuntosMonedas" alignment="CENTER" prefHeight="39.0" prefWidth="180.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
                                                    <font>
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
@@ -93,7 +93,7 @@
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="39.0" prefWidth="122.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
+                                                <Label fx:id="labelPuntosLlave" alignment="CENTER" prefHeight="39.0" prefWidth="122.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
                                                    <font>
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
@@ -116,7 +116,7 @@
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="39.0" prefWidth="210.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
+                                                <Label fx:id="labelPuntosChocado" alignment="CENTER" prefHeight="39.0" prefWidth="210.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
                                                    <font>
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
@@ -139,7 +139,7 @@
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>
                                                 </Label>
-                                                <Label alignment="CENTER" prefHeight="40.0" prefWidth="177.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
+                                                <Label fx:id="labelPuntosTiempo" alignment="CENTER" prefHeight="40.0" prefWidth="177.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
                                                    <font>
                                                       <Font name="Power Green" size="29.0" />
                                                    </font>

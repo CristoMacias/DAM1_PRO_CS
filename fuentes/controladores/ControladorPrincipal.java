@@ -18,6 +18,8 @@ public class ControladorPrincipal extends Controlador{
 	private ControladorMenu controladorMenu;
 	private ControladorEscenario controladorEscenario;
 	private ControladorMedia controladorMedia;
+	private ControladorFin controladorFin;
+	private ControladorTopJugadores ControladorTopJugadores;
 	private JDBC jdbc;
 	@FXML private Label labelNombreJugador;
 	@FXML private Label labelTotalChocado;
@@ -42,7 +44,7 @@ public class ControladorPrincipal extends Controlador{
 		jdbc = new JDBC();
 		jdbc.crearConexion();
 		jdbc.introducirDatosPredeterminados();
-		new ControladorLoginJugador(ventana,this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
+		controladorLogin=new ControladorLoginJugador(ventana,this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
 	}
 	/**
 	 * Método para instanciar al jugador
@@ -56,6 +58,11 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para instanciar y mostrar las vistas para el menú de selección de niveles
 	 */ 
 	public void cargarMenu(){
+		jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
+		jugador.setTotalMonedas(0);
+		jugador.setTieneLlave(false);
+		jugador.setTotalSegundos(0);
+		jugador.setTotalPuntuacion(0);
 		controladorMenu = new ControladorMenu(ventana,this);
 	}
 
@@ -72,28 +79,13 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para cargar la imagen final del juego al temrinar el laberinto
 	 */ 
 	public void cargarFin(){
-		Scene vistaFinal=cargarVista(this,"vistaFinJuego");
-		ventana.setTitle("FIN"); // Cambiar el titulo de la ventana
 		controladorMedia.pararLaberinto();
 		controladorMedia.reproducirFinal();
-		cambiarVista(vistaFinal);//Cambiamos la vista
+		jugador.calcularPuntuacion();//Calculamos la puntuacion total
+		jugador.comprobarPuntos();//Comprobamos los puntos para que si el resutlado es negativo, sea 0.
 		MejoresJugadores nuevoJugador = new MejoresJugadores(0, jugador.getNombre(), jugador.getTotalPuntuacion(), controladorEscenario.getTotalSegundos(), jugador.getTotalMonedas(), jugador.getTotalChocado());
 		jdbc.modificarRanking(nuevoJugador);
-		labelNombreJugador.setText("¡"+jugador.getNombre().toUpperCase()+"!");
-		labelTotalChocado.setText(String.valueOf(jugador.getTotalChocado()));
-		labelMonedas.setText(String.valueOf(jugador.getTotalMonedas()));
-		labelLlave.setText(jugador.comprobarLlave());
-		labelTiempo.setText(String.valueOf(controladorEscenario.getTotalSegundos()));
-		labelPuntuacion.setText(String.valueOf(jugador.getTotalPuntuacion()));
-		vistaFinal.setOnKeyPressed(event->{
-			jugador.setTotalChocado(0); //Evento para cambiar la vista pulsando cualquier tecla
-			jugador.setTotalMonedas(0);
-			jugador.setTieneLlave(false);
-			jugador.setTotalPuntuacion(0);
-			controladorMedia.pararFinal();
-			controladorMedia.reproducirIntroduccion();
-			cargarTopJugadores();
-		});
+		controladorFin=new ControladorFin(ventana,this,jugador);
 	}
 	
 	/**
@@ -114,7 +106,9 @@ public class ControladorPrincipal extends Controlador{
 			cargarLogin();
 		});
 	}
-
+	/**
+	 * getter de ControladorMedia
+	 */ 
 	public ControladorMedia getControladorMedia(){
 		return this.controladorMedia;
 	}
@@ -122,12 +116,8 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para cargar la vista del Top 10 Mejores Jugadores
 	 */ 
 	public void cargarTopJugadores(){
-		Scene vistaTopJugadores = cargarVista(this,"vistaTopJugadores");
 		controladorMedia.pararFinal();
 		controladorMedia.reproducirIntroduccion();
-		cambiarVista(vistaTopJugadores);
-		vistaTopJugadores.setOnKeyPressed(event->{
-			cargarMenu();//Cuando presione, vuelve a la vista del Menús
-		});
+		new ControladorTopJugadores(ventana,this,jdbc);
 	}
 }

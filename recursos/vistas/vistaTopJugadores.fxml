@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="631.0" prefWidth="800.0">
@@ -75,12 +74,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="AAA" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre1" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="AAA" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="1000" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion1" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="1000" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -94,12 +93,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="BBB" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre2" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="BBB" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="900" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion2" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="900" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -113,12 +112,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="CCC" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre3" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="CCC" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="800" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion3" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="800" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -132,12 +131,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="DDD" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre4" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="DDD" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="700" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion4" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="700" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -151,12 +150,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="EEE" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre5" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="EEE" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="600" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion5" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="600" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -170,12 +169,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="FFF" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre6" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="FFF" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="500" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion6" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="500" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -189,12 +188,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="GGG" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre7" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="GGG" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="400" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion7" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="400" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -208,12 +207,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="HHH" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre8" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="HHH" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="300" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion8" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="300" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -227,12 +226,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="III" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre9" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="III" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="200" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion9" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="200" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
@@ -246,12 +245,12 @@
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="JJJ" textFill="#ffcc00">
+                                          <Label fx:id="labelNombre10" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="JJJ" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>
                                           </Label>
-                                          <Label alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="100" textFill="#ffcc00">
+                                          <Label fx:id="labelPuntuacion10" alignment="CENTER" prefHeight="44.0" prefWidth="325.0" style="-fx-border-color: #ffcc00;" text="100" textFill="#ffcc00">
                                              <font>
                                                 <Font name="Power Green" size="22.0" />
                                              </font>

@@ -170,7 +170,7 @@ public class ControladorEscenario extends Controlador{
 		labelTitulo.setText("NIVEL "+escenario.getNombre().toUpperCase());
 		captuarMovimiento();
 		iniciarContador();
-		}
+	}
 
 	/**
 	 * Método para captuar el evento para capturar por teclado los movimientos de WASD
@@ -252,7 +252,8 @@ public class ControladorEscenario extends Controlador{
 			if(lineaTiempo != null){
 				lineaTiempo.stop();
 			}
-			controladorPp.getJugador().comprobarPuntuacion();
+			controladorPp.getJugador().setTotalSegundos(segundosTranscurridos);//Añadimos el totalSegundos al jugador
+			//controladorPp.getJugador().comprobarPuntuacion();//Calculamos la puntuación total ?,comprobar en ControladorFin
 			controladorPp.cargarFin();
 		}
 	}
