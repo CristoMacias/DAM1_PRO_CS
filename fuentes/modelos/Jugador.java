@@ -18,6 +18,7 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	private Boolean tieneLlave;
 	private Integer totalPuntuacion;
 	private int totalSegundos;
+	private final int TIEMPOMAXIMO = 120;
 	/**
 	 * Constructor para inicializar los atributos del personaje e instanciarlo
 	 * @param nombre Recibe el nombre del jugador
@@ -159,7 +160,7 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	 * Método para comprobar las puntuciones
 	 */ 
 	public void calcularPuntuacion(){
-		this.totalPuntuacion=puntuarMonedas()+puntuarLlave()+puntuarChocado();
+		this.totalPuntuacion=puntuarMonedas()+puntuarLlave()+puntuarChocado()+puntuarTiempo();
 	}
 	/**
 	 * Calcula el total de puntos por moneda
@@ -188,8 +189,25 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 		else
 			return -(this.totalChocado*5);
 	}
+	public int puntuarTiempo(){
+		if(totalSegundos < TIEMPOMAXIMO){
+			return TIEMPOMAXIMO - this.totalSegundos;
+		}
+		else{
+			return 0;
+		}
+	}
 	public void comprobarPuntos(){
 		if(this.totalPuntuacion<0)
 			this.totalPuntuacion= 0;
 	}	
+	/**
+	 *Método para formatear el tiempo y que se muestre en la tabla de puntuaciones.
+	 * @return tiempo formateado.
+	 */
+	public String formatoTiempo(){
+		int minutos = this.totalSegundos / 60;
+		int segundos = this.totalSegundos % 60;
+		return String.format("%02d:%02d", minutos, segundos);
+	}
 }

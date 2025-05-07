@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="489.0" prefHeight="489.0" prefWidth="1280.0" style="-fx-background-color: black; -fx-effect: dropshadow(gaussian,black,5,0.0,4,4);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" maxHeight="489.0" prefHeight="325.0" prefWidth="1280.0" style="-fx-background-color: #323232; -fx-border-color: #ffcc00; -fx-border-width: 5px;">
+         <children>
+            <StackPane prefHeight="55.0" prefWidth="1280.0">
+               <children>
+                  <ImageView blendMode="OVERLAY" fitHeight="48.0" fitWidth="1280.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@../../recursos/pared.png" />
+                     </image>
+                  </ImageView>
+                  <VBox prefHeight="107.0" prefWidth="1280.0">
+                     <children>
+                        <Label fx:id="labelTitulo" alignment="CENTER" contentDisplay="CENTER" maxHeight="56.0" prefHeight="48.0" prefWidth="1290.0" style="-fx-border-color: #ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.0,0,4);" text="LA ÚLTIMA PRUEBA..." textFill="#ffcc00">
+                           <font>
+                              <Font name="Power Green" size="33.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </StackPane>
+            <GridPane fx:id="grid" alignment="CENTER" maxHeight="380.0" minHeight="320.0" minWidth="1280.0" prefHeight="364.0" prefWidth="1290.0" style="-fx-border-color: #ffcc00; -fx-effect: dropshadow(gaussian,black,5,0.0,0,4);">
+      </GridPane>
+            <VBox alignment="CENTER_LEFT" maxHeight="113.0" prefHeight="113.0" prefWidth="1280.0">
+               <children>
+                  <StackPane prefHeight="107.0" prefWidth="1280.0">
+                     <children>
+                        <ImageView blendMode="OVERLAY" fitHeight="90.0" fitWidth="1280.0" opacity="0.33" pickOnBounds="true">
+                           <image>
+                              <Image url="@../paredEstadisticas.png" />
+                           </image>
+                        </ImageView>
+                        <VBox prefHeight="129.0" prefWidth="1280.0">
+                           <children>
+                              <Label fx:id="labelWASD" prefHeight="52.0" prefWidth="1280.0" style="-fx-border-color: #ffcc00; -fx-label-padding: 15px; -fx-effect: dropshadow(gaussian,black,5,0.0,0,4);" text="WASD&gt;" textFill="#ffcc00">
+                                 <font>
+                                    <Font name="Power Green" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelOuch" contentDisplay="CENTER" prefHeight="40.0" prefWidth="1280.0" style="-fx-border-color: #ffcc00; -fx-label-padding: 10px; -fx-effect: dropshadow(gaussian,black,5,0.0,0,4);" textFill="#ffffffc9">
+                                 <font>
+                                    <Font name="Power Green" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

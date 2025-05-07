@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="600.0" prefWidth="800.0" style="-fx-spacing: 20px; -fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <ImageView blendMode="RED" fitHeight="600.0" fitWidth="800.0" opacity="0.93" pickOnBounds="true">
+               <image>
+                  <Image url="@../../compilados/fin.gif" />
+               </image>
+            </ImageView>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="BOTTOM_CENTER" prefHeight="102.0" prefWidth="517.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="¡ENHORABUENA!" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="64.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelNombreJugador" alignment="CENTER" prefHeight="54.0" prefWidth="354.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="31.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="36.0" prefWidth="229.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="FIN DEL LABERINTO" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="29.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="CENTER" prefHeight="258.0" prefWidth="800.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="196.0" prefWidth="800.0">
+                           <children>
+                              <VBox opacity="0.64" prefHeight="162.0" prefWidth="460.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(0, 0, 0, 0.5);">
+                                 <children>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label alignment="CENTER" prefHeight="38.0" prefWidth="144.0" style="-fx-border-color: #ffcc00;" text="CONSEGUIDO" textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="25.0" />
+                                             </font>
+                                          </Label>
+                                          <Label alignment="CENTER" prefHeight="108.0" prefWidth="116.0" style="-fx-border-color: #ffcc00;" text="PUNTOS" textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="25.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" prefHeight="63.0" prefWidth="199.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="TOTAL MONEDAS: " textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="39.0" prefWidth="259.0">
+                                             <children>
+                                                <Label fx:id="labelMonedas" alignment="CENTER" prefHeight="39.0" prefWidth="207.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 0, 0, 0.2);" text="3" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelPuntosMonedas" alignment="CENTER" prefHeight="39.0" prefWidth="180.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" prefHeight="63.0" prefWidth="199.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="LLAVE: " textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="39.0" prefWidth="259.0">
+                                             <children>
+                                                <Label fx:id="labelLlave" alignment="CENTER" prefHeight="39.0" prefWidth="149.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 0, 0, 0.2);" text="SI" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelPuntosLlave" alignment="CENTER" prefHeight="39.0" prefWidth="122.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" prefHeight="48.0" prefWidth="199.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="TOTAL VECES CHOCADO:" textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="39.0" prefWidth="259.0">
+                                             <children>
+                                                <Label fx:id="labelTotalChocado" alignment="CENTER" prefHeight="39.0" prefWidth="238.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 0, 0, 0.2);" text="0" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelPuntosChocado" alignment="CENTER" prefHeight="39.0" prefWidth="210.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="100" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <Label contentDisplay="BOTTOM" prefHeight="67.0" prefWidth="199.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4); -fx-border-color: #ffcc00; -fx-label-padding: 10px;" text="TIEMPO: " textFill="#ffcc00">
+                                             <font>
+                                                <Font name="Power Green" size="20.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox prefHeight="40.0" prefWidth="259.0">
+                                             <children>
+                                                <Label fx:id="labelTiempo" alignment="CENTER" prefHeight="39.0" prefWidth="204.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 0, 0, 0.2);" text="00:00s" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                                <Label fx:id="labelPuntosTiempo" alignment="CENTER" prefHeight="40.0" prefWidth="177.0" style="-fx-border-color: #ffcc00; -fx-background-color: rgba(255, 204, 0, 0.2);" text="75" textFill="#ffcc00">
+                                                   <font>
+                                                      <Font name="Power Green" size="29.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="95.0" prefWidth="800.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="BOTTOM" prefHeight="38.0" prefWidth="301.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="PUNTUACIÓN TOTAL " textFill="#ffcc00">
+                           <font>
+                              <Font name="Power Green" size="37.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelPuntuacion" alignment="CENTER" contentDisplay="BOTTOM" prefHeight="44.0" prefWidth="79.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="100" textFill="#ffcc00">
+                           <font>
+                              <Font name="Power Green" size="37.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <StackPane maxHeight="160.0" minHeight="40.0" prefHeight="99.0" prefWidth="800.0">
+                     <children>
+                        <ImageView fitHeight="101.0" fitWidth="138.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../compilados/brilloFondo.gif" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="91.0" fitWidth="83.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../compilados/jugador.gif" />
+                           </image>
+                           <effect>
+                              <DropShadow height="70.83" radius="40.045" width="91.35">
+                                 <color>
+                                    <Color red="1.0" green="0.8635802268981934" blue="0.5185185074806213" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+                  <Label alignment="TOP_CENTER" contentDisplay="BOTTOM" prefHeight="41.0" prefWidth="279.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,4,4);" text="(Pulsa cualquier tecla para Continuar...)" textFill="#ffcc00">
+                     <font>
+                        <Font name="Power Green" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</VBox>

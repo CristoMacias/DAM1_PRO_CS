@@ -1,0 +1,14 @@
+@font-face{
+    font-family: "Power Green";
+    src:url("powerg.ttf");
+}
+
+.root{
+    -fx-font-family: "Power Green";
+}
+
+
+.boton-hover:hover{
+    -fx-scale-x:1.1;
+    -fx-scale-y:1.1;
+}
