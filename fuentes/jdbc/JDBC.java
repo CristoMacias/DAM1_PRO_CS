@@ -25,7 +25,6 @@ public class JDBC{
 	private String usuario = "CristoSandra";
 	private String clave = "videojuego";
 	private String [] puntuaciones = new String[NUMEROJUGADORES];  
-	private List<MejoresJugadores> topTen=new ArrayList<>();
 	/**
 	 * Método para crear la conexión y la tabla de la base de datos del videojuego
 	 */
@@ -87,6 +86,7 @@ public class JDBC{
 	}
 	
 	public void modificarRanking(MejoresJugadores nuevoJugador){
+		List<MejoresJugadores> topTen=new ArrayList<>();
 		try(Connection conexion = DriverManager.getConnection(url, usuario, clave)){
 			String sql = "SELECT Id, Nombre, Puntuacion, Tiempo, Oro, Choques FROM puntuaciones";
 			try(Statement sentencia = conexion.createStatement();
@@ -134,6 +134,26 @@ public class JDBC{
 	 * @return Devuelve el ArrayList de TopTen
 	 */ 
 	public List<MejoresJugadores> getTopTen(){
-		return this.topTen;
+		List<MejoresJugadores> imprimirTopTen=new ArrayList<>();
+		try(Connection conexion = DriverManager.getConnection(url, usuario, clave)){
+			String sql = "SELECT Id, Nombre, Puntuacion, Tiempo, Oro, Choques FROM puntuaciones";
+			try(Statement sentencia = conexion.createStatement();
+				ResultSet resultado = sentencia.executeQuery(sql)){
+				while(resultado.next()){
+					imprimirTopTen.add(new MejoresJugadores(
+						resultado.getInt("Id"),
+						resultado.getString("Nombre"),
+						resultado.getInt("Puntuacion"),
+						resultado.getInt("Tiempo"),
+						resultado.getInt("Oro"),
+						resultado.getInt("Choques")
+					));
+				}
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return imprimirTopTen;
 	}
 }
