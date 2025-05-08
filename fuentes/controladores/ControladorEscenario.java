@@ -55,6 +55,9 @@ public class ControladorEscenario extends Controlador{
 	private @FXML Label labelTiempo;
 	private Timeline lineaTiempo; //Ejecuta algo cada X tiempo
 	private int segundosTranscurridos = 0; //Contador de segundos transcurridos
+	
+	
+
 	/**
 	 * Controlador de Escenario
 	 * @param stage Lo recibe de la herencia del Controlador
@@ -79,23 +82,30 @@ public class ControladorEscenario extends Controlador{
 		raizVista1.getChildren().add(raizVista2);
 		ivMoneda=new ImageView(new Image(this.getClass().getResourceAsStream("/moneda.gif")));
 		ivLlave=new ImageView(new Image(this.getClass().getResourceAsStream("/llave2.gif")));
-		//Iniciamos la vista principal
-		
 		crearGrid(filas,cols);
+		ponerSuelo();
+		ponerBordes();
+		comenzarJuego();
+	}
+	/**
+	 * Método para poner el suelo del escenario
+	 */
+	private void ponerSuelo(){
 		Rectangle2D vpSuelo = new Rectangle2D(0*LADO,0*LADO,LADO,LADO);
-		Rectangle2D vpBorde = new Rectangle2D(1*LADO,0*LADO,LADO,LADO);
-		Rectangle2D vpObstaculo = new Rectangle2D(6*LADO,0*LADO,LADO,LADO);
-		Rectangle2D vpPuerta = new Rectangle2D(5*LADO,1*LADO,LADO,LADO);
-		//Rectangle2D vpSuelo = new Rectangle2D();
-		//Rectangle2D vpSuelo = new Rectangle2D();
-		//Rectangle2D vpSuelo = new Rectangle2D();
-		//Ponemos suelo
 		for(int i = 0; i < filas; i++){
 			for(int j = 0; j < cols; j++){
 				asignarCelda(vpSuelo, i, j);
 			}
 		}
-		//Ponemos bordes
+	}
+	/**
+	 * Método para poner el borde del escenario.
+	 */
+	private void ponerBordes(){
+		Rectangle2D vpSuelo = new Rectangle2D(0*LADO,0*LADO,LADO,LADO);
+		Rectangle2D vpBorde = new Rectangle2D(1*LADO,0*LADO,LADO,LADO);
+		Rectangle2D vpObstaculo = new Rectangle2D(6*LADO,0*LADO,LADO,LADO);
+		Rectangle2D vpPuerta = new Rectangle2D(5*LADO,1*LADO,LADO,LADO);
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < cols; j++) {
 				if (i == 0 || i == filas - 1 || j == 0 || j == cols - 1) {
@@ -117,9 +127,7 @@ public class ControladorEscenario extends Controlador{
 				}
 			}
 		}
-		comenzarJuego();
 	}
-
 	/**
 	 * Asignas a las celdas elegidas el imageView en la fila y columna indicadas.
 	 */
@@ -395,6 +403,10 @@ public class ControladorEscenario extends Controlador{
 		labelPuntos.setText(String.valueOf(controladorPp.getJugador().getTotalPuntuacion()));
 	}
 
+	/**
+	 * Getter del total de segundos
+	 * @return segundosTranscurridos en la partida.
+	 */
 	public int getTotalSegundos(){
 		return segundosTranscurridos;
 	}

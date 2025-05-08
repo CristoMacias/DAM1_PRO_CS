@@ -84,7 +84,10 @@ public class JDBC{
 	        e.printStackTrace();
 	    }
 	}
-	
+	/**
+	 * Método para modificar el ranking del topTen despues de una partida.
+	 * @param nuevoJugador recibe el nuevo jugadaor que ha ganado la partida.
+	 */
 	public void modificarRanking(MejoresJugadores nuevoJugador){
 		List<MejoresJugadores> topTen=new ArrayList<>();
 		try(Connection conexion = DriverManager.getConnection(url, usuario, clave)){
@@ -111,23 +114,36 @@ public class JDBC{
 			try(Statement sentencia = conexion.createStatement()){
 				sentencia.executeUpdate("DELETE FROM puntuaciones");
 			}
-			sql = "INSERT INTO puntuaciones(Id, Nombre, Puntuacion, Tiempo, Oro, Choques) VALUES (?, ?, ?, ?, ?, ?)";
-			try(PreparedStatement sentenciaPreparada = conexion.prepareStatement(sql)){
-				for(MejoresJugadores mj : topTen){
-					sentenciaPreparada.setInt(1, mj.getId());
-					sentenciaPreparada.setString(2, mj.getNombre());
-					sentenciaPreparada.setInt(3, mj.getPuntuacionTotal());
-					sentenciaPreparada.setInt(4, mj.getTotalSegundos());
-					sentenciaPreparada.setInt(5, mj.getOro());
-					sentenciaPreparada.setInt(6, mj.getChoques());
-					sentenciaPreparada.addBatch(); //Añade al lote de la sentencia preparada.
-				}
-				sentenciaPreparada.executeBatch(); //Ejecuta todas las instrucciones del lote a la vez.
-			}
+			insertarTopTen(topTen); //Insertar en la base de datos del topTen
 		}
 		catch(SQLException e){
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * Inserta en la base de datos el ArrayList del topTen ya actualizado.
+	 * @param topTen recibe el arrayList del top ten ya actualizado.
+	 */
+	public void insertarTopTen(List<MejoresJugadores> topTen){
+		try(Connection conexion = DriverManager.getConnection(url, usuario, clave)){
+			String sql = "INSERT INTO puntuaciones(Id, Nombre, Puntuacion, Tiempo, Oro, Choques) VALUES (?, ?, ?, ?, ?, ?)";
+			try(PreparedStatement sentenciaPreparada = conexion.prepareStatement(sql)){
+					for(MejoresJugadores mj : topTen){
+						sentenciaPreparada.setInt(1, mj.getId());
+						sentenciaPreparada.setString(2, mj.getNombre());
+						sentenciaPreparada.setInt(3, mj.getPuntuacionTotal());
+						sentenciaPreparada.setInt(4, mj.getTotalSegundos());
+						sentenciaPreparada.setInt(5, mj.getOro());
+						sentenciaPreparada.setInt(6, mj.getChoques());
+						sentenciaPreparada.addBatch(); //Añade al lote de la sentencia preparada.
+					}
+					sentenciaPreparada.executeBatch(); //Ejecuta todas las instrucciones del lote a la vez.
+				}
+			}
+			catch(SQLException e){
+				e.printStackTrace();
+			}
+
 	}
 	/**
 	 * Getter de topTen
