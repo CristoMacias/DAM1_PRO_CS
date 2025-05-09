@@ -39,7 +39,7 @@
                   </Label>
                   <VBox alignment="CENTER" blendMode="HARD_LIGHT" prefHeight="236.0" prefWidth="800.0" style="-fx-spacing: 20px;">
                      <children>
-                        <Button fx:id="botonFacil" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Facil" textFill="#ffcc00">
+                        <Button fx:id="botonFacil" alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Facil" textFill="#ffcc00">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -54,7 +54,7 @@
                               </InnerShadow>
                            </effect>
                         </Button>
-                        <Button fx:id="botonMedio" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Medio" textFill="#ffcc00">
+                        <Button fx:id="botonMedio" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Medio" textFill="#ffcc00">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -69,7 +69,37 @@
                               </InnerShadow>
                            </effect>
                         </Button>
-                        <Button fx:id="botonDificil" mnemonicParsing="false" prefHeight="31.0" prefWidth="127.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Dificil" textFill="#ffcc00">
+                        <Button fx:id="botonDificil" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Dificil" textFill="#ffcc00">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Power Green" size="21.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow>
+                                 <color>
+                                    <Color red="0.9879999756813049" green="1.0" blue="0.8600000143051147" />
+                                 </color>
+                              </InnerShadow>
+                           </effect>
+                        </Button>
+                        <Button fx:id="botonTopTen" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Top Ten" textFill="#ffcc00">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Power Green" size="21.0" />
+                           </font>
+                           <effect>
+                              <InnerShadow>
+                                 <color>
+                                    <Color red="0.9879999756813049" green="1.0" blue="0.8600000143051147" />
+                                 </color>
+                              </InnerShadow>
+                           </effect>
+                        </Button>
+                        <Button fx:id="botonCambiar" mnemonicParsing="false" prefHeight="31.0" prefWidth="180.0" style="-fx-effect: dropshadow(gaussian,black,5,0.5,2,2); -fx-background-radius: 50px; -fx-background-color: #a88f8f;" styleClass="boton-hover" text="Cambiar Jugador" textFill="#ffcc00">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

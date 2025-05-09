@@ -15,7 +15,9 @@ public class ControladorMedia{
 	private MediaPlayer mpIntroduccion;
 	private MediaPlayer mpLaberinto;
 	private MediaPlayer mpFinal;
-	private MediaPlayer mpMoneda;
+	private MediaPlayer mpTopTen;
+	private MediaPlayer mpMenu;
+	private MediaPlayer mpLogin;
 	/**
 	 * Constructor de ControladorMedia.
 	 */
@@ -30,7 +32,9 @@ public class ControladorMedia{
 		mpIntroduccion=cargarMediaPlayer("compilados/sonidos/introduccion.mp3");
 		mpLaberinto=cargarMediaPlayer("compilados/sonidos/laberinto.mp3");
 		mpFinal=cargarMediaPlayer("compilados/sonidos/sonidoFinal.mp3");
-		
+		mpTopTen=cargarMediaPlayer("compilados/sonidos/topTen.mp3");
+		mpMenu=cargarMediaPlayer("compilados/sonidos/menu.mp3");
+		mpLogin=cargarMediaPlayer("compilados/sonidos/login.mp3");
 	}
 	/**
 	 * Método para instanciar la Media
@@ -65,51 +69,57 @@ public class ControladorMedia{
 	}
 	/**
 	 * Método para reproducir el sonido de bienvenida
+	 * @return Devuelve el media player para saber cuál es el que se reproduce actualmente
 	 */ 
-	public void reproducirBienvenida(){
+	public MediaPlayer reproducirBienvenida(){
 		reproducir(mpBienvenida);
-	}
-	/**
-	 * Método para parar el sonido de bienvenida
-	 */ 
-	public void pararBienvenida(){
-		parar(mpBienvenida);
+		return mpBienvenida;
 	}
 	/**
 	 * Método para reproducir el sonido de introducción
+	 * @return Devuelve el media player para saber cuál es el que se reproduce actualmente
 	 */ 
-	public void reproducirIntroduccion(){
+	public MediaPlayer reproducirIntroduccion(){
 		reproducir(mpIntroduccion);
-	}
-	/**
-	 * Método para parar el sonido de introduccióm
-	 */ 
-	public void pararIntroduccion(){
-		parar(mpIntroduccion);
+		return mpIntroduccion;
 	}
 	/**
 	 * Método para reproducir el sonido de laberinto
+	 * @return Devuelve el media player para saber cuál es el que se reproduce actualmente
 	 */
-	public void reproducirLaberinto(){
+	public MediaPlayer reproducirLaberinto(){
 		reproducir(mpLaberinto);
-	}
-	/**
-	 * Método para parar el sonido de laberinto
-	 */ 
-	public void pararLaberinto(){
-		parar(mpLaberinto);
+		return mpLaberinto;
 	}
 	/**
 	 * Método para reproducir el sonido del final
+	 * @return Devuelve el media player para saber cuál es el que se reproduce actualmente
 	 */ 
-	public void reproducirFinal(){
+	public MediaPlayer reproducirFinal(){
 		reproducir(mpFinal);
+		return mpFinal;
 	}
 	/**
-	 * Método para parar el sonido de final
+	 * Método para reproducir el sonido de la vista Top Ten
+	 * @return Devuelve el media player para saber cuál es el que se reproduce actualmente
 	 */ 
-	public void pararFinal(){
-		parar(mpFinal);
+	public MediaPlayer reproducirTopTen(){
+		reproducir(mpTopTen);
+		return mpTopTen;
+	}
+	/**
+	 * Método para reproducir el sonido de la vista Menu
+	 */ 
+	public MediaPlayer reproducirMenu(){
+		reproducir(mpMenu);
+		return mpMenu;
+	}
+	/**
+	 * Método para reproducir el sonido de la vista Login
+	 */ 
+	public MediaPlayer reproducirLogin(){
+		reproducir(mpLogin);
+		return mpLogin;
 	}
 	/**
 	 * Método que instancia y reproduce el sonido de la moneda 

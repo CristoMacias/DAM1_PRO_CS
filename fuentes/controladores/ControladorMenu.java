@@ -16,7 +16,8 @@ public class ControladorMenu extends Controlador{
 	@FXML private Button botonMedio;
 	@FXML private Button botonDificil;
 	@FXML private Button botonSalir;
-
+	@FXML private Button botonTopTen;
+	@FXML private Button botonCambiar;
 	/**
 	 * Contructor del menu
 	 * @param stage recibe el stage del controlador, desde la herencia
@@ -38,6 +39,8 @@ public class ControladorMenu extends Controlador{
 		botonFacil.setOnAction(event -> cargarEscenario("facil"));
 		botonMedio.setOnAction(event -> cargarEscenario("medio"));
 		botonDificil.setOnAction(event -> cargarEscenario("dificil"));
+		botonTopTen.setOnAction(event-> controladorPp.cargarTopJugadores());//Boton para cambiar la vista al Top 10 Mejores Jugadores
+		botonCambiar.setOnAction(event -> controladorPp.cargarLogin());//Boton para cambiar la vista al login del jugador para cambiar de jugador
 		botonSalir.setOnAction(event -> controladorPp.salirJuego());//Capturamos el evento del boton salir para terminar el juego
 	}
 
@@ -48,6 +51,4 @@ public class ControladorMenu extends Controlador{
 	private void cargarEscenario(String dificultad){
 		controladorPp.cargarEscenario(dificultad);
 	}
-
-	
 }

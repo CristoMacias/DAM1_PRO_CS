@@ -42,8 +42,8 @@ public class Controlador {
             fxmlLoader.setController(controlador);
             Parent raiz = fxmlLoader.load();
             vista=new Scene(raiz);
-            vista.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-            Image imagenCursor=new Image("/bat.gif");
+            vista.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());//Añadimos a la vista el Css con la fuente(y con el movimiento en los botones al pasar el raton por encima, :hover)
+            Image imagenCursor=new Image(getClass().getResourceAsStream("/bat.gif"),64,64,true,true);//Cargamos la imagen para el cursor
             vista.setCursor(new ImageCursor(imagenCursor));
         }catch(IOException e){
             e.printStackTrace();
@@ -70,7 +70,6 @@ public class Controlador {
         ventana.setY(ventanaY);
         ventana.setScene(vista);
         ventana.setMaximized(true);//Para mantenerlo maximizado
-        //ventana.show();
     }
     /**
      * Getter de ventana

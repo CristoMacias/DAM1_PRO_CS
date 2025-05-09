@@ -1,0 +1,12 @@
+COMANDOS PARA EJECUTAR EN LINUX
+"Donde estan los ?? debes poner la ruta donde se encuentra almacenado tu javafx".
+
+1º. Crear el .txt con todas las rutas de los .java
+	find . -name "*.java" > sources.txt
+2º. Copiar los recursos a compilados
+	cp -r recursos compilados/
+3º. Compilar
+	javac -d compilados --module-path "$HOME/??/javafx/lib" --add-modules javafx.fxml,javafx.controls,javafx.media $(find fuentes -name "*.java")
+
+4º Ejecutar
+	java -cp compilados.:compilados/##/sqlitejdbc.jar --module-path "$HOME/??/javafx/lib" --add-modules javafx.fxml,javafx.controls,javafx.media App

@@ -1,0 +1,12 @@
+COMANDOS PARA EJECUTAR EN WINDOWS
+"Donde estan los ?? debes poner la ruta donde se encuentra almacenado tu javafx".
+"Donde están los ## en ejecutar debe ir la carpeta del driver."
+
+1º Crear un .txt con las rutas de todos los .java
+	dir /s /b *.java > sources.txt
+2º Copiar recursos a compilados
+	xcopy recursos compilados /E
+3º Compilar
+	javac -d compilados --module-path C:\Users\??\??\javafx-sdk-24\lib --add-modules javafx.fxml,javafx.controls,javafx.media @sources.txt
+4º Ejecutar
+	java -cp compilados.;compilados/##/sqlitejdbc.jar --module-path C:\Users\??\??\javafx-sdk-24\lib --add-modules javafx.fxml,javafx.controls,javafx.media App

@@ -8,6 +8,7 @@ import modelos.MejoresJugadores;
 import javafx.scene.control.Label;
 import javafx.fxml.FXML;
 import jdbc.JDBC;
+import javafx.scene.media.MediaPlayer;
 /**
  * Clase de Controlador Principal. Es el que se encargará de la lógica general del juego
  * @author Sandra Moñino, Cristo Macias
@@ -27,6 +28,7 @@ public class ControladorPrincipal extends Controlador{
 	@FXML private Label labelLlave;
 	@FXML private Label labelPuntuacion;
 	@FXML private Label labelTiempo;
+	private MediaPlayer mpActual;
 	/**
 	 * Constrcutor para ControladorPrincipal
 	 * @param stage Recibe el stage de ventana
@@ -34,7 +36,7 @@ public class ControladorPrincipal extends Controlador{
 	public ControladorPrincipal(Stage stage){
 		super(stage);
 		controladorMedia=new ControladorMedia();//Instanciamos el controladorMedia para manejar todo lo relacionado con el media.
-		controladorMedia.reproducirBienvenida();
+		mpActual=controladorMedia.reproducirBienvenida();
 		new ControladorBienvenida(ventana,this);//Instanciamos el ControladorBienvenida para que se incie la vista
 	}
 	/**
@@ -44,6 +46,8 @@ public class ControladorPrincipal extends Controlador{
 		jdbc = new JDBC();
 		jdbc.crearConexion();
 		jdbc.introducirDatosPredeterminados();
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirLogin();
 		controladorLogin=new ControladorLoginJugador(ventana,this);//Instanciamos el ControladorLoginJugador para que se inicie la vista y el controlador
 	}
 	/**
@@ -63,6 +67,8 @@ public class ControladorPrincipal extends Controlador{
 		jugador.setTieneLlave(false);
 		jugador.setTotalSegundos(0);
 		jugador.setTotalPuntuacion(0);
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirMenu();
 		controladorMenu = new ControladorMenu(ventana,this);
 	}
 
@@ -71,16 +77,16 @@ public class ControladorPrincipal extends Controlador{
 	 */
 	public void cargarEscenario(String dificultad){
 		Escenario escenario = new Escenario(dificultad);
-		controladorMedia.pararIntroduccion();
-		controladorMedia.reproducirLaberinto();
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirLaberinto();
 		controladorEscenario = new ControladorEscenario(ventana, this,escenario);
 	}
 	/**
 	 * Método para cargar la imagen final del juego al temrinar el laberinto
 	 */ 
 	public void cargarFin(){
-		controladorMedia.pararLaberinto();
-		controladorMedia.reproducirFinal();
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirFinal();
 		jugador.calcularPuntuacion();//Calculamos la puntuacion total
 		jugador.comprobarPuntos();//Comprobamos los puntos para que si el resutlado es negativo, sea 0.
 		MejoresJugadores nuevoJugador = new MejoresJugadores(0, jugador.getNombre(), jugador.getTotalPuntuacion(), controladorEscenario.getTotalSegundos(), jugador.getTotalMonedas(), jugador.getTotalChocado());
@@ -99,8 +105,8 @@ public class ControladorPrincipal extends Controlador{
 	 */ 
 	public void cargarIntroduccion(){
 		Scene vistaIntroduccion=cargarVista(this,"vistaIntroduccion");
-		controladorMedia.pararBienvenida();
-		controladorMedia.reproducirIntroduccion();
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirIntroduccion();
 		cambiarVista(vistaIntroduccion);
 		vistaIntroduccion.setOnKeyPressed(event->{
 			cargarLogin();
@@ -116,8 +122,8 @@ public class ControladorPrincipal extends Controlador{
 	 * Método para cargar la vista del Top 10 Mejores Jugadores
 	 */ 
 	public void cargarTopJugadores(){
-		controladorMedia.pararFinal();
-		controladorMedia.reproducirIntroduccion();
+		controladorMedia.parar(mpActual);
+		mpActual=controladorMedia.reproducirTopTen();
 		new ControladorTopJugadores(ventana,this,jdbc);
 	}
 }

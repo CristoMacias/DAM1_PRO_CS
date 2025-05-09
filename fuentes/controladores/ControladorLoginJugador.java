@@ -44,6 +44,7 @@ public class ControladorLoginJugador extends Controlador{
 		this.vistaLoginEmail=cargarVista(this,"vistaLoginEmail"); 
 		ventana.setTitle("Login Jugador"); //Cambiamos el titulo de de la ventana
 		cambiarVista(vistaLoginNombre); // Cambiamos la vista para pasar de la bienvenida al del login del jugador
+		botonNombre.requestFocus();//Cambiamos el foco al boton para que el TextField no recoga la tecla pulsada en la vista
 		capturarEventosNombre(); //Llamamos al método para capturar el boton del login nombre
 	}
 	/**
