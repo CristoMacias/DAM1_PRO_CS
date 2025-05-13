@@ -9,4 +9,4 @@ COMANDOS PARA EJECUTAR EN WINDOWS
 3º Compilar
 	javac -d compilados --module-path C:\Users\??\??\javafx-sdk-24\lib --add-modules javafx.fxml,javafx.controls,javafx.media @sources.txt
 4º Ejecutar
-	java -cp compilados.;compilados/##/sqlitejdbc.jar --module-path C:\Users\??\??\javafx-sdk-24\lib --add-modules javafx.fxml,javafx.controls,javafx.media App
+	java -cp compilados.;compilados/driverBBDD/sqlitejdbc.jar --module-path C:\Users\??\??\javafx-sdk-24\lib --add-modules javafx.fxml,javafx.controls,javafx.media App

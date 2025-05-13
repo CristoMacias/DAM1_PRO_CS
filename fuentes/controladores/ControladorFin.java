@@ -53,7 +53,6 @@ public class ControladorFin extends Controlador{
 		labelTiempo.setText(jugador.formatoTiempo()); //Mostrar el total de segundos formateado
 		labelPuntuacion.setText(String.valueOf(jugador.getTotalPuntuacion()));//Mostrar el total de puntos 
 	}
-
 	/**
 	 * Método para calcular y mostrar las puntuaciones según la estadística
 	 */ 

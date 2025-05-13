@@ -52,7 +52,6 @@ public class JDBC{
 			e.printStackTrace();
 		}
 	}
-
 	/**
 	 * Método para introducir los datos predeterminados en la tabla, ya que tiene que haber únicamente 10 personajes.
 	 * Comprueba si hay datos introducidos para que no se dupliquen.

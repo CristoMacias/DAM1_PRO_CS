@@ -135,7 +135,9 @@ public class ControladorMedia{
 		MediaPlayer mpLlaves=cargarMediaPlayer("compilados/sonidos/llaves.mp3");
 		mpLlaves.play();
 	}
-
+	/**
+	 * Método que instancia y reproduce el sonido cuando el jugador se choca.
+	 */
 	public void reproducirChocarse(){
 		MediaPlayer mpChocarse=cargarMediaPlayer("compilados/sonidos/chocarse.mp3");
 		mpChocarse.play();

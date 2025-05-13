@@ -71,7 +71,6 @@ public class ControladorPrincipal extends Controlador{
 		mpActual=controladorMedia.reproducirMenu();
 		controladorMenu = new ControladorMenu(ventana,this);
 	}
-
 	/**
 	 * Método para instanciar el escenario seleccionado y mostrar las vistas para el escenario
 	 */
@@ -93,7 +92,6 @@ public class ControladorPrincipal extends Controlador{
 		jdbc.modificarRanking(nuevoJugador);
 		controladorFin=new ControladorFin(ventana,this,jugador);
 	}
-	
 	/**
 	 * Getter de jugador
 	 */

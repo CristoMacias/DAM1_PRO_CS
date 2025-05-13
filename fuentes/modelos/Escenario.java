@@ -27,7 +27,6 @@ public class Escenario {
 		this.nombre = nombre;
 		this.escenarioCargado = cargarEscenario();
 	}
-
 	/**
 	 * Método para cargar el atributo matrizEscenario , inicializa una matriz en
 	 * tamaño y contenido desde un archivo .txt
@@ -46,7 +45,6 @@ public class Escenario {
 		}
 		return escenarioCargado; // Devuelve la lista con el escenario cargado.
 	}
-
 	/**
 	 * Método para recrear el escenario en una matriz una vez guardado este en el
 	 * ArrayList.
@@ -59,81 +57,36 @@ public class Escenario {
 		}
 
 		try {
-			String[] tamanio = escenarioCargado.get(0).split("x"); // Guardamos las dimensiones de la matriz que
-																	// aparecen al inicio del txt del escenario en un
-																	// vector.
-			Integer columnas = Integer.parseInt(tamanio[0]); // Sacamos las columnas que se guardan en la primera
-																// posicion y las pasamos a Integer.
+			String[] tamanio = escenarioCargado.get(0).split("x"); // Guardamos las dimensiones de la matriz que aparecen al inicio del txt del escenario en un vector.
+			Integer columnas = Integer.parseInt(tamanio[0]); // Sacamos las columnas que se guardan en la primera posicion y las pasamos a Integer.
 			Integer filas = Integer.parseInt(tamanio[1]); // Lo mismo que el anterior para las filas
-
 			this.escenario = new char[filas][columnas]; // Le damos el tamaño a la matriz de escenario.
-
 			for (int i = 0; i < filas; i++) {
-				String linea = escenarioCargado.get(i + 1); // Se elige la posicion 1, ya que la 0 contiene las
-															// dimensiones
-				// System.out.println(linea);
+				String linea = escenarioCargado.get(i + 1); // Se elige la posicion 1, ya que la 0 contiene las dimensiones
 				String[] trozos = linea.split(",");
-				// System.out.println(trozos[0]);
-				// System.out.println(trozos[1]);
-
 				int col = 0;
-
 				for (String trozo : trozos) {
-
 					int noNumerico = 0;
-
 					while (noNumerico < trozo.length() && Character.isDigit(trozo.charAt(noNumerico))) {
 						noNumerico++;
 					}
-
 					int veces = Integer.parseInt(trozo.substring(0, noNumerico)); // Coge las veces que se repite.
 					char accion = trozo.charAt(noNumerico); // Coge el elemento que se va a imprimir.
-
-					// System.out.println(veces);
-					// System.out.println(accion);
-
 					char elemento = ' ';
 					if (accion == 'E') {
 						accion = '_';
 					} else if (accion == 'O') {
 						elemento = 'X';
 					}
-
 					for (int j = 0; j < veces && col < columnas; j++) {
 						this.escenario[i][col++] = elemento;
 					}
-
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-	
-	/**
-	 * Contabiliza los espacios y los obstáculos del escenario
-	 * 
-	 * @return revuelve un Array donde la posición 1 son los obstáculos y la
-	 *         posición 2 son los espacios
-	 
-	public Integer[] contabilizarElementos() {
-		Integer contadorObstaculos = 0;
-		Integer contadorEspacios = 0;
-
-		for (int i = 0; i < escenario.length; i++) {
-			for (int j = 0; j < escenario[i].length; j++) {
-				if (escenario[i][j] == 'X') {
-					contadorObstaculos++;
-				} else if (escenario[i][j] == ' ') {
-					contadorEspacios++;
-				}
-			}
-		}
-
-		return new Integer[] { contadorObstaculos, contadorEspacios };
-	}*/
-
 	/**
 	 * Getter de nombre
 	 * 
@@ -142,7 +95,6 @@ public class Escenario {
 	public String getNombre() {
 		return this.nombre;
 	}
-
 	/**
 	 * Método de devolver escenario
 	 * 

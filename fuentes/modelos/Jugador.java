@@ -64,12 +64,14 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	}
 	/**
 	 * Getter de total chocado
+	 * @return totalChocado, El total de veces que se ha chocado el jugador.
 	 */ 
 	public Integer getTotalChocado(){
 		return this.totalChocado;
 	}
 	/**
 	 * Setter de total chocado
+	 * @param total Recibe el total de veces que se ha chocado el jugador
 	 */
 	public void setTotalChocado(Integer total){
 		this.totalChocado=total;
@@ -117,10 +119,17 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 	public void setTotalPuntuacion(Integer puntuacion){
 		this.totalPuntuacion=puntuacion;
 	}
-
+	/**
+	 * Getter del total de segundos
+	 * @return totalSegundos
+	 */
 	public int getTotalSegundos(){
 		return this.totalSegundos;
 	}
+	/**
+	 * Setter de total de segundos
+	 * @param totalSegundos recibe el total de segundos en el que el nuevo jugador realizó el juego.
+	 */
 	public void setTotalSegundos(int totalSegundos){
 		this.totalSegundos=totalSegundos;
 	}
@@ -189,6 +198,11 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 		else
 			return -(this.totalChocado*5);
 	}
+	/**
+	 * Método para puntuar el tiempo, con un máximo de dos minutos, que si se supera, no gana puntuacion por tiempo.
+	 * Si el jugador realiza el juego antes del tiempo máximo, el tiempo restante se le sumará como un punto por segundo.
+	 * @return puntuacion.
+	 */
 	public int puntuarTiempo(){
 		if(totalSegundos < TIEMPOMAXIMO){
 			return TIEMPOMAXIMO - this.totalSegundos;
@@ -197,6 +211,9 @@ public class Jugador implements Serializable{ //Implementamos la interfaz Serial
 			return 0;
 		}
 	}
+	/**
+	 * Método que comprueba la puntuacion total, si es menor que 0, se mantenga en 0.
+	 */
 	public void comprobarPuntos(){
 		if(this.totalPuntuacion<0)
 			this.totalPuntuacion= 0;
