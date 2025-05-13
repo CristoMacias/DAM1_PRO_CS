@@ -24,3 +24,4 @@ hs_err_pid*
 replay_pid*
 #Permitir que se añada el driver
 !recursos/driverBBDD/sqlitejdbc.jar
+!puntuaciones.db
