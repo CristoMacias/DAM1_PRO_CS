@@ -11,7 +11,6 @@ import modelos.Escenario;
  */ 
 public class ControladorMenu extends Controlador{
 	private Scene vistaMenu;
-
 	@FXML private Button botonFacil;
 	@FXML private Button botonMedio;
 	@FXML private Button botonDificil;
@@ -31,7 +30,6 @@ public class ControladorMenu extends Controlador{
 		cambiarVista(vistaMenu);
 		capturarEventos();
 	}
-
 	/**
  	* Captura los eventos de los botones.
  	*/
@@ -43,7 +41,6 @@ public class ControladorMenu extends Controlador{
 		botonCambiar.setOnAction(event -> controladorPp.cargarLogin());//Boton para cambiar la vista al login del jugador para cambiar de jugador
 		botonSalir.setOnAction(event -> controladorPp.salirJuego());//Capturamos el evento del boton salir para terminar el juego
 	}
-
 	/**
 	 * Método para cargar el escenario y recibe de capturar eventos la dificultad elegida
 	 * @param dificultad Dificultad elegida por el usuario que a su vez es el nombre del txt
